@@ -391,8 +391,8 @@
 }
 
 .timeline-dot-svg {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   overflow: visible;
   color: var(--gold);
 }
@@ -402,7 +402,7 @@
 }
 
 .timeline-node.is-filled .dot-circle {
-  fill: var(--gold);
+  fill: var(--paper);
 }
 
 .dot-icon {
@@ -439,19 +439,30 @@
 }
 
 .timeline-year {
-  position: absolute;
-  right: calc(100% + 6px);
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
+  order: 2;
+  min-width: 64px;
+  margin-top: 7px;
+  transform: none;
   white-space: nowrap;
+  z-index: 2;
+  padding: 4px 8px 3px;
+  background: var(--paper);
+  border-radius: 3px;
   color: var(--gold);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   opacity: 0;
   transition: opacity 0.3s var(--ease);
   transition-delay: 0ms;
+}
+
+.timeline-node.is-founding .timeline-year {
+  order: 0;
+  margin-top: 0;
+  margin-bottom: 7px;
 }
 
 .timeline-node.is-visible .timeline-year {
@@ -475,7 +486,7 @@
 }
 
 .proj-card.is-dimmed {
-  opacity: 1; /* overlay alone handles background dimming — no double-fade */
+  opacity: 0.72;
   transition: opacity 0.3s var(--ease);
 }
 
@@ -635,7 +646,7 @@
 .proj-overlay {
   position: fixed;
   inset: 0;
-  z-index: 40;
+  z-index: 90;
   background: var(--coal);
   opacity: 0;
   pointer-events: none;
@@ -643,7 +654,7 @@
 }
 
 .proj-overlay.is-on {
-  opacity: 0.45; /* single darkening effect; was 0.6 + 0.4 card-dim stacked */
+  opacity: 0.28;
   pointer-events: auto;
 }
 
@@ -653,13 +664,13 @@ body.proj-expanded {
 
 .proj-card.is-expanded {
   position: fixed;
-  z-index: 50;
-  top: 5vh;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  width: min(960px, 90vw);
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  width: min(960px, calc(100vw - 32px));
   max-height: 90vh;
   overflow: auto;
   display: grid;
@@ -671,6 +682,10 @@ body.proj-expanded {
 .proj-card.is-expanded .proj-card-photo {
   height: auto;
   min-height: 420px;
+}
+
+.proj-card.is-expanded .proj-card-body {
+  position: static;
 }
 
 .proj-card.is-expanded .proj-slideshow {
@@ -741,7 +756,7 @@ body.proj-expanded {
 }
 
 .proj-card.is-expanded .proj-close {
-  display: grid;
+  display: grid !important;
   place-items: center;
   position: absolute;
   top: 14px;
@@ -751,18 +766,39 @@ body.proj-expanded {
   border: 0;
   border-radius: 50%;
   background: var(--coal);
-  color: var(--paper);
-  font-size: 22px;
+  color: transparent;
+  font-size: 0;
   cursor: pointer;
   z-index: 20;
   opacity: 1;
   transition: transform 0.2s var(--ease), background 0.2s ease;
 }
 
+.proj-card.is-expanded .proj-close::before,
+.proj-card.is-expanded .proj-close::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background: var(--paper);
+}
+
+.proj-card.is-expanded .proj-close::before {
+  transform: rotate(45deg);
+}
+
+.proj-card.is-expanded .proj-close::after {
+  transform: rotate(-45deg);
+}
+
 .proj-card.is-expanded .proj-close:hover {
   background: var(--gold);
-  color: var(--coal);
   transform: scale(1.08);
+}
+
+.proj-card.is-expanded .proj-close:hover::before,
+.proj-card.is-expanded .proj-close:hover::after {
+  background: var(--coal);
 }
 
 .proj-card-spacer {
@@ -948,7 +984,6 @@ body.proj-expanded {
 
   .proj-card.is-expanded {
     grid-template-columns: 1fr;
-    top: 3vh;
     max-height: 94vh;
   }
 
@@ -987,6 +1022,7 @@ body.proj-expanded {
   .project-row.is-solo {
     grid-template-columns: 48px 1fr;
     gap: 0 14px;
+    grid-template-rows: auto auto;
   }
 
   .project-row-spacer {
@@ -996,13 +1032,28 @@ body.proj-expanded {
   .project-row .timeline-node,
   .project-row.is-solo .timeline-node {
     grid-column: 1;
+    grid-row: 1 / 3;
+    align-self: stretch;
+  }
+
+  .project-row > .proj-card:nth-of-type(1),
+  .project-row > .proj-card:nth-of-type(2) {
+    grid-column: 2;
+    margin-top: 0;
+  }
+
+  .project-row > .proj-card:nth-of-type(1) {
     grid-row: 1;
   }
 
-  .project-row .proj-card,
+  .project-row > .proj-card:nth-of-type(2) {
+    grid-row: 2;
+    margin-top: 18px;
+  }
+
   .project-row.is-solo .proj-card:not(.is-hidden) {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 1 / 3;
     margin-top: 0;
   }
 
@@ -1014,6 +1065,8 @@ body.proj-expanded {
   .timeline-year {
     right: auto;
     left: calc(100% + 8px);
+    padding: 0;
+    background: transparent;
     writing-mode: horizontal-tb;
   }
 

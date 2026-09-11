@@ -344,18 +344,12 @@
         return;
       }
 
-      var last = card.getBoundingClientRect();
-      var dx = first.left - last.left;
-      var dy = first.top - last.top;
-      var sx = first.width / last.width;
-      var sy = first.height / last.height;
-      card.style.transform = 'translate(' + dx + 'px, ' + dy + 'px) scale(' + sx + ', ' + sy + ')';
-      card.style.transformOrigin = 'top left';
+      card.style.transform = 'translate(-50%, -50%) scale(0.92)';
       card.style.transition = 'transform 0ms';
 
       requestAnimationFrame(function () {
         card.style.transition = 'transform 0.45s ' + EASE;
-        card.style.transform = 'none';
+        card.style.transform = 'translate(-50%, -50%) scale(1)';
       });
 
       window.setTimeout(function () {
@@ -367,9 +361,7 @@
         window.setTimeout(function () { li.classList.add('is-in'); }, 350 + i * 60);
       });
 
-      window.setTimeout(function () {
-        card.classList.add('is-show-close');
-      }, 400);
+      card.classList.add('is-show-close');
     }
 
     function collapse() {
@@ -384,7 +376,6 @@
         });
         card.style.transition = '';
         card.style.transform = '';
-        card.style.transformOrigin = '';
         if (spacer) {
           spacer.parentNode.removeChild(spacer);
           spacer = null;
@@ -412,15 +403,8 @@
           finish();
           return;
         }
-        var last = card.getBoundingClientRect();
-        var first = spacer.getBoundingClientRect();
         card.style.transition = 'transform 0.4s ' + EASE;
-        card.style.transformOrigin = 'top left';
-        var dx = first.left - last.left;
-        var dy = first.top - last.top;
-        var sx = first.width / last.width;
-        var sy = first.height / last.height;
-        card.style.transform = 'translate(' + dx + 'px, ' + dy + 'px) scale(' + sx + ', ' + sy + ')';
+        card.style.transform = 'translate(-50%, -50%) scale(0.92)';
 
         window.setTimeout(function () {
           finish();
