@@ -1,0 +1,1100 @@
+/* ==========================================================================
+   R2S Compressed Biogas (CBG) Page Stylesheet (v2)
+   ========================================================================== */
+
+.biogas-page {
+  --bio-green: #2d7a4d;
+  --bio-green-glow: #75ca83;
+  --bio-dark: var(--ink);
+  --bio-pale: var(--cream);
+  background: var(--ink);
+  color: var(--cream);
+  overflow-x: hidden;
+}
+
+.biogas-page .site-header {
+  position: absolute;
+}
+
+.biogas-page .brand-copy strong,
+.biogas-page .site-nav {
+  color: var(--cream);
+}
+
+.biogas-page .site-footer {
+  display: block;
+  background: var(--ink-soft);
+  color: var(--muted);
+  border-top: 1px solid rgba(117, 202, 131, 0.2);
+  padding: 0;
+}
+
+.biogas-page .footer-inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 50px;
+  padding: 72px 8.6vw 54px;
+}
+
+.biogas-page .footer-brand .brand-mark {
+  width: 47px;
+  height: 47px;
+}
+
+.biogas-page .footer-brand .brand-copy strong {
+  font-size: 10px;
+}
+
+.biogas-page .footer-tagline {
+  max-width: 230px;
+  margin: 20px 0 0;
+  color: #94bd9a;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.biogas-page .footer-nav-heading {
+  color: #edf5ed;
+}
+
+.biogas-page .footer-nav-col ul,
+.biogas-page .footer-contact-col address {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.biogas-page .footer-nav-col a,
+.biogas-page .footer-contact-col a,
+.biogas-page .footer-contact-col p {
+  color: #aebdb1;
+  font-size: 12px;
+  font-style: normal;
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.biogas-page .footer-nav-col a:hover,
+.biogas-page .footer-contact-col a:hover {
+  color: #75ca83;
+}
+
+.biogas-page .footer-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.biogas-page .footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 21px 8.6vw;
+  margin: 0;
+  border-top: 1px solid rgba(243, 238, 227, 0.1);
+  color: #7f9182;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.biogas-page .footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+.biogas-page .footer-legal a {
+  color: #7f9182;
+  transition: color 0.2s ease;
+}
+
+.biogas-page .footer-legal a:hover {
+  color: #75ca83;
+}
+
+/* ── Typography & Shared Elements ────────────────────────────────────── */
+
+.eyebrow-green {
+  color: var(--bio-green);
+}
+
+.bio-hero h1,
+.bio-capabilities h2,
+.bio-cta h2 {
+  font-size: clamp(45px, 5.3vw, 78px);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin: 0 0 23px;
+}
+
+.biogas-page .bio-about,
+.biogas-page .bio-process,
+.biogas-page .bio-benefits {
+  background: var(--ink-soft);
+  color: var(--cream);
+}
+
+.biogas-page .bio-about-copy,
+.biogas-page .bio-process-head,
+.biogas-page .process-grid article,
+.biogas-page .bio-benefits > div:first-child {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.biogas-page .bio-about-copy,
+.biogas-page .bio-benefits > div:first-child {
+  padding: 34px;
+}
+
+.biogas-page .bio-process-head {
+  padding: 30px;
+}
+
+.biogas-page .process-grid article {
+  padding: 22px;
+}
+
+.biogas-page .bio-about-copy > p:not(.eyebrow),
+.biogas-page .bio-benefits > div > p:not(.eyebrow),
+.biogas-page .bio-process-head > p,
+.biogas-page .process-grid p,
+.biogas-page .bio-circle > small {
+  color: var(--muted-light);
+}
+
+.biogas-page .feature-grid,
+.biogas-page .benefit-grid {
+  border-top-color: var(--line);
+}
+
+.biogas-page .feature-grid b,
+.biogas-page .benefit-grid b,
+.biogas-page .process-grid h3 {
+  color: var(--cream);
+}
+
+.bio-hero h1 em,
+.bio-process h2 em,
+.bio-about h2 em,
+.bio-benefits h2 em,
+.bio-impact em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: #75ca83;
+}
+
+.bio-about h2,
+.bio-process h2,
+.bio-benefits h2 {
+  font-size: clamp(36px, 4.4vw, 62px);
+  line-height: 1.08;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+}
+
+.bio-hero-copy > p:not(.eyebrow),
+.bio-cta p:not(.eyebrow) {
+  color: #d4ddd5;
+  max-width: 530px;
+  margin: 0 0 32px;
+}
+
+.bio-about-copy > p:not(.eyebrow),
+.bio-benefits > div > p:not(.eyebrow) {
+  max-width: 470px;
+  color: #536259;
+  margin: 0 0 28px;
+}
+
+.bio-about .button,
+.bio-cta .button {
+  margin-bottom: 35px;
+}
+
+.bio-side-label,
+.bio-cta aside {
+  position: absolute;
+  right: 3vw;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 9px;
+  color: rgba(240, 248, 239, 0.7);
+  text-align: center;
+  z-index: 2;
+}
+
+.bio-side-label i,
+.bio-cta aside i {
+  display: block;
+  height: 22px;
+  width: 1px;
+  background: #75ca83;
+  margin: 14px auto;
+}
+
+.bio-section {
+  padding: 120px 8.6vw;
+}
+
+/* ── Vector SVG Icon Styling ─────────────────────────────────────────── */
+
+.bio-icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  stroke: currentColor;
+  vertical-align: middle;
+}
+
+/* ── 1. Hero Section & Parallax ──────────────────────────────────────── */
+
+.bio-hero {
+  min-height: 760px;
+  height: 100vh;
+  max-height: 980px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #173323;
+}
+
+.biogas-page .bio-hero-copy {
+  color: #f4f8ef;
+}
+
+.biogas-page .bio-hero h1 {
+  color: #f4f8ef;
+  text-shadow: 0 2px 18px rgba(8, 24, 16, 0.22);
+}
+
+.biogas-page .bio-hero h1 em {
+  color: #86d995;
+}
+
+.biogas-page .bio-hero-copy > p:not(.eyebrow) {
+  color: #eef5ed;
+}
+
+.biogas-page .bio-hero .eyebrow {
+  color: #e2bb62;
+}
+
+.bio-hero-bg {
+  position: absolute;
+  top: -12%;
+  left: 0;
+  width: 100%;
+  height: 124%;
+  background: url('assets/biogas-hero.jpg') center/cover no-repeat;
+  will-change: transform;
+  z-index: 0;
+}
+
+.bio-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(8, 40, 25, 0.72), rgba(8, 40, 25, 0.38) 44%, rgba(8, 40, 25, 0.04) 80%),
+              linear-gradient(0deg, rgba(8, 35, 22, 0.28), transparent 55%);
+}
+
+.bio-hero-copy {
+  position: relative;
+  z-index: 2;
+  width: min(710px, 60vw);
+  margin: 100px 0 0 8.6vw;
+}
+
+.bio-icon-row {
+  display: flex;
+  gap: 0;
+  margin-top: 50px;
+}
+
+.bio-icon-row span {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 0 19px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  color: #9bd39e;
+}
+
+.bio-icon-row span:first-child {
+  padding-left: 0;
+  border: 0;
+}
+
+.bio-icon-row small {
+  font: 9px var(--sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ecf2eb;
+  white-space: nowrap;
+}
+
+/* ── 2. About Section & Ambient Floating Leaves ──────────────────────── */
+
+.bio-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: center;
+  background: var(--ink-soft);
+}
+
+.feature-grid,
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  border-top: 1px solid #c7d7ca;
+  padding-top: 22px;
+}
+
+.feature-grid span,
+.benefit-grid span {
+  color: var(--bio-green);
+}
+
+.feature-grid .bio-icon,
+.benefit-grid .bio-icon {
+  width: 24px;
+  height: 24px;
+  stroke: var(--bio-green);
+}
+
+.feature-grid b,
+.benefit-grid b {
+  display: block;
+  font-size: 10px;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #34483b;
+  margin-top: 8px;
+}
+
+/* Circular split-image & panel */
+.bio-circle {
+  height: min(440px, 38vw);
+  width: min(440px, 38vw);
+  min-width: 320px;
+  border-radius: 50%;
+  position: relative;
+  overflow: visible;
+  margin-left: auto;
+  background: var(--bio-dark);
+  box-shadow: 0 16px 40px rgba(25, 60, 35, 0.15);
+}
+
+.bio-circle-photo {
+  position: absolute;
+  inset: 0 50% 0 0;
+  border-radius: 100% 0 0 100%;
+  background: url('assets/biogas-sprout.jpg') center/cover no-repeat;
+  opacity: 0;
+  transform: translateX(-35px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.bio-circle-panel {
+  position: absolute;
+  left: 53%;
+  top: 37%;
+  color: #edf5ed;
+  font: 20px var(--serif);
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateX(35px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.12s, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.12s;
+  will-change: opacity, transform;
+}
+
+.bio-circle-panel em {
+  color: #77cb87;
+  font-style: italic;
+}
+
+.bio-circle > small {
+  position: absolute;
+  right: -110px;
+  bottom: 22%;
+  width: 130px;
+  color: #597064;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.bio-circle.is-visible .bio-circle-photo,
+.bio-circle.is-visible .bio-circle-panel {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Ambient Floating Leaves around .bio-circle */
+.bio-floating-leaf {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.bio-floating-leaf svg {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 4px 8px rgba(16, 45, 32, 0.25));
+}
+
+.bio-leaf-1 {
+  top: -12px;
+  left: 26%;
+  animation: bioLeafFloat1 7s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.bio-leaf-2 {
+  top: 62%;
+  right: -24px;
+  animation: bioLeafFloat2 9s ease-in-out infinite;
+  animation-delay: 2.3s;
+}
+
+.bio-leaf-3 {
+  bottom: -16px;
+  left: 18%;
+  animation: bioLeafFloat3 8s ease-in-out infinite;
+  animation-delay: 4.6s;
+}
+
+@keyframes bioLeafFloat1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(10px, -18px) rotate(14deg);
+  }
+}
+
+@keyframes bioLeafFloat2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-12px, -14px) rotate(-16deg);
+  }
+}
+
+@keyframes bioLeafFloat3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(8px, 16px) rotate(10deg);
+  }
+}
+
+/* ── 3. Capabilities Section ─────────────────────────────────────────── */
+
+.bio-capabilities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bio-dark);
+  color: #edf5ed;
+}
+
+.bio-cap-copy {
+  padding: 115px 8.6vw;
+}
+
+.bio-cap-copy > p:not(.eyebrow) {
+  color: #b8cec0;
+  max-width: 500px;
+}
+
+.bio-cap-copy ol {
+  list-style: none;
+  padding: 0;
+  margin: 35px 0 0;
+  counter-reset: item;
+}
+
+.bio-cap-copy li {
+  counter-increment: item;
+  border-top: 1px solid rgba(174, 218, 183, 0.22);
+  padding: 14px 0 14px 42px;
+  font-size: 13px;
+  position: relative;
+}
+
+.bio-cap-copy li:before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  border: 1px solid #75ca83;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  color: #75ca83;
+}
+
+.bio-cap-image {
+  min-height: 620px;
+  background: linear-gradient(0deg, rgba(10, 36, 22, 0.55), transparent 50%),
+              url('assets/biogas-capabilities.jpg') center/cover no-repeat;
+  position: relative;
+}
+
+.bio-cap-image span,
+.benefit-image span {
+  position: absolute;
+  right: 7%;
+  top: 9%;
+  border: 1px solid rgba(238, 250, 238, 0.6);
+  padding: 13px 17px;
+  color: #f0f7ef;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+}
+
+/* ── 4. Process Section & Animated Arrow Draw-in ──────────────────────── */
+
+.bio-process {
+  background: var(--ink-soft);
+}
+
+.bio-process-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: end;
+  margin-bottom: 60px;
+}
+
+.bio-process-head > p {
+  max-width: 400px;
+  border-left: 1px solid var(--bio-green);
+  padding-left: 26px;
+  color: #536259;
+}
+
+.process-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  position: relative;
+}
+
+.process-grid article {
+  position: relative;
+  flex: 1;
+  max-width: 185px;
+}
+
+.process-grid b {
+  display: block;
+  color: var(--bio-green);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+.process-grid span {
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--bio-green);
+  color: white;
+  margin: 14px 0;
+  box-shadow: 0 4px 12px rgba(16, 45, 32, 0.15);
+  animation: bioBadgeGlow 3.6s ease-in-out infinite;
+}
+
+.process-grid article:nth-of-type(1) span { animation-delay: 0s; }
+.process-grid article:nth-of-type(2) span { animation-delay: 0.72s; }
+.process-grid article:nth-of-type(3) span { animation-delay: 1.44s; }
+.process-grid article:nth-of-type(4) span { animation-delay: 2.16s; }
+.process-grid article:nth-of-type(5) span { animation-delay: 2.88s; }
+
+@keyframes bioBadgeGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(45, 122, 77, 0.4), 0 4px 12px rgba(16, 45, 32, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 20px 6px rgba(117, 202, 131, 0.55), 0 6px 18px rgba(16, 45, 32, 0.25);
+  }
+}
+
+.process-grid span .bio-icon {
+  width: 32px;
+  height: 32px;
+  stroke: #ffffff;
+}
+
+.process-grid h3 {
+  font-size: 17px;
+  margin: 0 0 7px;
+}
+
+.process-grid p {
+  font-size: 12px;
+  color: #607267;
+  margin: 0;
+}
+
+/* Connecting SVG Arrow Draw-in */
+.process-arrow {
+  align-self: flex-start;
+  margin-top: 55px;
+  width: 38px;
+  flex-shrink: 0;
+}
+
+.process-arrow svg {
+  width: 100%;
+  height: 16px;
+  display: block;
+}
+
+.process-arrow-line {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.process-arrow-head {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  transition: stroke-dashoffset 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.process-grid.is-drawn .process-arrow:nth-of-type(1) .process-arrow-line {
+  stroke-dashoffset: 0;
+  transition-delay: 0.1s;
+}
+.process-grid.is-drawn .process-arrow:nth-of-type(1) .process-arrow-head {
+  stroke-dashoffset: 0;
+  transition-delay: 0.5s;
+}
+
+.process-grid.is-drawn .process-arrow:nth-of-type(2) .process-arrow-line {
+  stroke-dashoffset: 0;
+  transition-delay: 0.45s;
+}
+.process-grid.is-drawn .process-arrow:nth-of-type(2) .process-arrow-head {
+  stroke-dashoffset: 0;
+  transition-delay: 0.85s;
+}
+
+.process-grid.is-drawn .process-arrow:nth-of-type(3) .process-arrow-line {
+  stroke-dashoffset: 0;
+  transition-delay: 0.8s;
+}
+.process-grid.is-drawn .process-arrow:nth-of-type(3) .process-arrow-head {
+  stroke-dashoffset: 0;
+  transition-delay: 1.2s;
+}
+
+.process-grid.is-drawn .process-arrow:nth-of-type(4) .process-arrow-line {
+  stroke-dashoffset: 0;
+  transition-delay: 1.15s;
+}
+.process-grid.is-drawn .process-arrow:nth-of-type(4) .process-arrow-head {
+  stroke-dashoffset: 0;
+  transition-delay: 1.55s;
+}
+
+/* ── 5. Impact Section & Staggered Quote Lines ────────────────────────── */
+
+.bio-impact {
+  min-height: 460px;
+  padding: 95px 8.6vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: linear-gradient(90deg, rgba(14, 54, 31, 0.9), rgba(14, 54, 31, 0.38)),
+              url('assets/biogas-landscape.jpg') center/cover no-repeat;
+  color: #f3f7ef;
+}
+
+.bio-impact h2 {
+  font: italic 500 clamp(35px, 4.7vw, 65px) var(--serif);
+  line-height: 1.06;
+  margin: 0;
+}
+
+.impact-quote-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.bio-impact.is-visible .impact-quote-line:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.bio-impact.is-visible .impact-quote-line:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.bio-impact.is-visible .impact-quote-line:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.7s;
+}
+
+.bio-impact i {
+  display: block;
+  width: 55px;
+  height: 2px;
+  background: #d4ac5a;
+  margin-top: 26px;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 330px;
+}
+
+.impact-grid span {
+  color: #9ad79e;
+}
+
+.impact-grid .bio-icon {
+  width: 28px;
+  height: 28px;
+  stroke: #9ad79e;
+}
+
+.impact-grid small {
+  display: block;
+  color: #f0f7ef;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 9px;
+}
+
+/* ── 6. Key Benefits Section ─────────────────────────────────────────── */
+
+.bio-benefits {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 8vw;
+  background: var(--ink-soft);
+}
+
+.benefit-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 40px;
+}
+
+.benefit-grid .bio-icon {
+  width: 24px;
+  height: 24px;
+  stroke: var(--bio-green);
+}
+
+.benefit-image {
+  min-height: 470px;
+  position: relative;
+  background: linear-gradient(0deg, rgba(10, 36, 22, 0.35), transparent),
+              url('assets/biogas-macro.jpg') center/cover no-repeat;
+}
+
+/* ── 7. CTA Section ─────────────────────────────────────────────────── */
+
+.bio-cta {
+  min-height: 510px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 90px 8.6vw;
+  background: linear-gradient(90deg, rgba(8, 24, 16, 0.92), rgba(8, 24, 16, 0.3)),
+              url('assets/biogas-cta.jpg') center/cover no-repeat;
+  color: #edf5ed;
+}
+
+.bio-cta > div {
+  max-width: 650px;
+}
+
+.bio-cta h2 {
+  font-size: clamp(40px, 5vw, 70px);
+}
+
+/* ── 8. Standard Scroll-Reveal Entrance ──────────────────────────────── */
+
+.bio-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.bio-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── 9. Responsive Breakpoints ───────────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .bio-hero {
+    min-height: 760px;
+    align-items: flex-end;
+  }
+
+  .bio-hero-copy {
+    width: auto;
+    margin: 0 7vw 80px;
+  }
+
+  .bio-icon-row {
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 35px;
+  }
+
+  .bio-icon-row span {
+    padding: 0 12px;
+  }
+
+  .bio-side-label,
+  .bio-cta aside {
+    display: none;
+  }
+
+  .bio-about,
+  .bio-capabilities,
+  .bio-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-section {
+    padding: 80px 7vw;
+  }
+
+  .bio-circle {
+    margin: 30px auto 0;
+    width: 330px;
+    height: 330px;
+  }
+
+  .bio-circle > small {
+    right: -10px;
+    bottom: -55px;
+  }
+
+  .bio-cap-copy {
+    padding: 80px 7vw;
+  }
+
+  .bio-cap-image {
+    min-height: 400px;
+  }
+
+  .bio-process-head {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .process-grid {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .process-grid article {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .process-arrow {
+    transform: rotate(90deg);
+    margin: -6px 0 0 24px;
+    width: 24px;
+  }
+
+  .bio-impact {
+    display: block;
+    padding: 80px 7vw;
+  }
+
+  .impact-grid {
+    margin-top: 40px;
+  }
+
+  .bio-benefits .benefit-image {
+    min-height: 350px;
+  }
+
+  .bio-cta {
+    padding: 80px 7vw;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .biogas-page .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .bio-hero h1 {
+    font-size: 38px;
+  }
+
+  .bio-hero-copy .button,
+  .bio-cta .button {
+    width: 100%;
+  }
+
+  .feature-grid,
+  .benefit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bio-circle {
+    min-width: 280px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .bio-floating-leaf svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .bio-leaf-1 {
+    top: -8px;
+    left: 20%;
+  }
+
+  .bio-leaf-2 {
+    top: 58%;
+    right: -10px;
+  }
+
+  .bio-leaf-3 {
+    bottom: -10px;
+    left: 12%;
+  }
+
+  .bio-circle-panel {
+    font-size: 16px;
+  }
+
+  .bio-circle > small {
+    right: 0;
+  }
+
+  .bio-cap-image {
+    min-height: 320px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .biogas-page .footer-inner {
+    gap: 32px;
+    padding: 52px 7vw 42px;
+  }
+
+  .biogas-page .footer-bottom {
+    padding: 17px 7vw;
+    font-size: 9px;
+  }
+
+  .biogas-page .footer-legal {
+    gap: 15px;
+  }
+
+  .bio-impact h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 860px) {
+  .bio-hero-bg {
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
+/* ── 10. Accessibility & Prefers-Reduced-Motion ──────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+
+  .bio-reveal,
+  .bio-circle-photo,
+  .bio-circle-panel,
+  .impact-quote-line {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .process-arrow-line,
+  .process-arrow-head {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+
+  .process-grid span {
+    box-shadow: 0 4px 12px rgba(16, 45, 32, 0.15) !important;
+    animation: none !important;
+  }
+
+  .bio-floating-leaf {
+    animation: none !important;
+  }
+
+  .bio-hero-bg {
+    transform: none !important;
+  }
+}
