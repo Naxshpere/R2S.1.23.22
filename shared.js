@@ -117,6 +117,7 @@
       el.style.transition = 'transform 0ms';
 
       el.addEventListener('mousemove', function (e) {
+        if (el.classList.contains('is-expanded') || document.body.classList.contains('proj-expanded')) return;
         var rect = el.getBoundingClientRect();
         var x = (e.clientX - rect.left) / rect.width  - 0.5;
         var y = (e.clientY - rect.top)  / rect.height - 0.5;
@@ -128,6 +129,7 @@
       });
 
       el.addEventListener('mouseleave', function () {
+        if (el.classList.contains('is-expanded')) return;
         el.style.transition = 'transform 500ms cubic-bezier(0.16,1,0.3,1)';
         el.style.transform  = 'perspective(640px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
       });

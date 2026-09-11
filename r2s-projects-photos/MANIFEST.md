@@ -14,7 +14,7 @@
 | `project-08-hvac-bkc-mumbai-mep` | HVAC — BKC Mumbai, MEP | Cleanest angle on the chilled water tank, least visual clutter |
 | `project-09-phe-bkc-mumbai-mep` | PHE — BKC Mumbai, MEP | Rows of blue booster pumps down a long plant room — strongest sense of scale |
 | `project-10-ro-uv-bkc-mumbai-mep` | RO & UV — BKC Mumbai, MEP | RO membrane bank, clean and technical |
-| `project-11-vantara-aquarium-pmc` | Vantara Aquarium — PMC | Night exterior shot with the whale sculpture and lit facade — genuinely one of the best photos in the whole batch |
+| `project-11-aquarium-pmc` | Aquarium — PMC | Night exterior shot with the whale sculpture and lit facade — genuinely one of the best photos in the whole batch |
 
 ## Folder contents
 Each folder has `cover.jpg` plus 2–4 `gallery-0X.jpg` files, already:
@@ -26,4 +26,4 @@ Each folder has `cover.jpg` plus 2–4 `gallery-0X.jpg` files, already:
 - **Turnkey Surat has no finished-building photo** — every available photo is early foundation-stage. The cover I picked is the strongest of those, but if you have (or can get) a later-stage or completed photo of this project, swap it in — right now it's the one project on the page that won't show a "finished" hero shot.
 - A few files in the original uploads looked like generic supplier/product reference images rather than actual site photos (e.g. some HVAC/FF diagram-style images) — those were deliberately left out so every photo used is a real R2S project shot, not stock.
 - Sponsor/client logo files (e.g. Jio, Reliance logos in the Fountain folder) were left out of the gallery — let me know if you actually want a "client" credit line somewhere and I can work those in properly instead of as a loose photo.
-- The Vantara Aquarium folder had the richest set by far — if this project deserves a "featured" larger slot on the page rather than an equal grid card, it has the photos to support that.
+- The aquarium PMC folder had the richest set by far — if this project deserves a "featured" larger slot on the page rather than an equal grid card, it has the photos to support that.

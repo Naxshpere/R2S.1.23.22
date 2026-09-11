@@ -7,8 +7,9 @@
   <title>Projects | R2S Creative Construction LLP</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="font-overrides.css" />
   <link rel="stylesheet" href="projects.css" />
   <link rel="stylesheet" href="cursor.css" />
   <script src="script.js" defer></script>
@@ -18,7 +19,6 @@
 </head>
 <body class="projects-page">
 
-  <!-- ── HEADER ─────────────────────────────────────────────────── -->
   <header class="site-header" id="top">
     <a class="brand" href="index.html" aria-label="R2S Creative Construction LLP home">
       <span class="brand-mark"><img src="assets/logo.png" alt="R2S" /></span>
@@ -43,252 +43,592 @@
 
   <main>
 
-    <!-- ── 1. HERO ─────────────────────────────────────────────── -->
     <section class="proj-hero" aria-labelledby="proj-hero-title">
-      <div class="proj-hero-bg parallax-bg"></div>
+      <div class="proj-hero-media parallax-bg">
+        <div class="proj-hero-bg" data-hero="bg"></div>
+      </div>
       <div class="proj-hero-overlay"></div>
-      <img class="proj-hero-watermark parallax-mid" src="assets/logo.png" alt="" aria-hidden="true" />
-      <div class="proj-hero-copy parallax-fg reveal-up">
-        <p class="eyebrow">Our Portfolio</p>
-        <h1 id="proj-hero-title">
-          <em>Projects</em>
-          <span>Built to Last</span>
-        </h1>
-        <p>Eleven real projects across oil & gas, MEP, PMC, turnkey and special projects — engineered, managed and delivered by R2S across India.</p>
-        <!-- Ruler / scale decoration -->
-        <div class="proj-ruler" aria-label="11 projects delivered">
-          <span class="proj-ruler-label">11 Projects</span>
-          <div class="proj-ruler-track">
-            <div class="proj-ruler-fill"></div>
-            <div class="proj-ruler-ticks" aria-hidden="true">
-              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-            </div>
-          </div>
-          <span class="proj-ruler-label">Completed</span>
+      <div class="proj-hero-copy">
+        <p class="eyebrow" data-hero="eyebrow">Our Projects</p>
+        <h1 id="proj-hero-title" data-hero="title">Building<br /><em>Real Impact</em></h1>
+        <p data-hero="copy">From complex infrastructure to specialised facilities, we deliver projects that create lasting value for businesses, communities and the environment.</p>
+        <div class="proj-stat-row" role="list">
+          <article data-hero="stat" data-stat-index="0" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
+            <div><strong>13+</strong><small>Projects</small></div>
+          </article>
+          <article data-hero="stat" data-stat-index="1" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3.5 19c.4-3.2 2.7-5 5.5-5s5.1 1.8 5.5 5M13 19c.3-2.4 1.8-4 4-4 2 0 3.4 1.2 3.8 3.4"/></svg>
+            <div><strong>5</strong><small>Service Sectors</small></div>
+          </article>
+          <article data-hero="stat" data-stat-index="2" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 22s-7-4.4-7-11a7 7 0 1 1 14 0c0 6.6-7 11-7 11z"/><circle cx="12" cy="11" r="2.4"/></svg>
+            <div><strong>4+</strong><small>Cities Across India</small></div>
+          </article>
+          <article data-hero="stat" data-stat-index="3" role="listitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-7-4.3-7-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 21 11c0 5.7-9 10-9 10z"/></svg>
+            <div><strong>100%</strong><small>Commitment</small></div>
+          </article>
         </div>
       </div>
       <aside class="proj-side-label" aria-hidden="true">
-        Delivered<br /><i></i>On Time<br /><i></i>Every Time
+        Ideas<br /><i></i>Engineered<br /><i></i>Spaces Built<br /><i></i>Potential Enabled
       </aside>
     </section>
 
-    <!-- ── 2. FEATURED — Vantara Aquarium ─────────────────────── -->
-    <section class="proj-featured" aria-labelledby="featured-title">
-      <div class="proj-featured-photo">
-        <img
-          src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/cover.jpg"
-          alt="Vantara Aquarium — night exterior with whale sculpture and illuminated facade"
-          loading="eager"
-        />
-        <!-- Gallery strip -->
-        <div class="proj-featured-gallery">
-          <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-01.jpg" alt="Vantara Aquarium interior" loading="lazy" />
-          <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-02.jpg" alt="Vantara Aquarium exhibits" loading="lazy" />
-          <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-03.jpg" alt="Vantara Aquarium detail" loading="lazy" />
+
+    <div class="proj-overlay" id="proj-overlay" hidden></div>
+
+    <section class="proj-board section-shell" aria-label="Project timeline">
+      <div class="projects-grid" id="proj-grid">
+        <svg class="timeline-svg" viewBox="0 0 4 1400" preserveAspectRatio="none" aria-hidden="true">
+          <path id="timeline-path" d="M2,0 L2,1400" stroke="var(--gold)" stroke-width="2" fill="none" />
+        </svg>
+
+        <div class="project-row project-row--founding">
+          <div></div>
+          <div class="timeline-node is-founding" data-year="EST. 2021">
+            <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
+              <circle class="founding-ring" cx="16" cy="16" r="10" fill="none" stroke="var(--gold)" stroke-width="1.5" />
+              <circle class="dot-circle" cx="16" cy="16" r="6" fill="var(--paper)" stroke="var(--gold)" stroke-width="2" />
+              <g class="dot-icon" transform="translate(10,10) scale(0.5)">
+                <path class="icon-stroke" d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6M10 11h.01M14 11h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </svg>
+            <span class="timeline-year">EST. 2021</span>
+          </div>
+          <div></div>
+        </div>
+
+        <div class="project-row">
+          <article class="proj-card card-tilt reveal-left" data-category="Special" data-status="Completed">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/cover.jpg" alt="Musical fountain Jamnagar dusk with water reflection" />
+                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-01.jpg" alt="Musical fountain lighting detail" />
+                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-02.jpg" alt="Musical fountain nozzles" />
+              </div>
+              <span class="proj-status">Completed</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">Specialised Works</span>
+              <h3>Musical Fountain — Reliance Township</h3>
+              <p class="proj-loc">Reliance (Jio), Jamnagar, Gujarat</p>
+              <ul class="proj-metrics">
+                <li><strong>100 m²</strong><span>Fountain Area</span></li>
+                <li><strong>80+</strong><span>Nozzles</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>Musical fountain system with programmed lighting and water sequences</li>
+                <li>Integrated nozzle grid across a 100 m² display basin</li>
+                <li>Dusk-to-night show lighting for the Reliance Township public realm</li>
+                <li>Commissioned as a completed specialised works package</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+
+          <div class="timeline-node" data-year="2021">
+            <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
+              <circle class="dot-circle" cx="16" cy="16" r="6" fill="var(--paper)" stroke="var(--gold)" stroke-width="2" />
+              <g class="dot-icon" transform="translate(10,9.5) scale(0.5)">
+                <path class="icon-stroke" d="M12 2.8S6 9.2 6 13.6a6 6 0 0 0 12 0C18 9.2 12 2.8 12 2.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </g>
+            </svg>
+            <span class="timeline-year">2021</span>
+          </div>
+
+          <article class="proj-card card-tilt reveal-right" data-category="Special" data-status="Completed">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-02-koi-pond-rcp-mumbai/cover.jpg" alt="Koi pond with rock waterfall and mall atrium backdrop" />
+                <img src="r2s-projects-photos/assets/projects/project-02-koi-pond-rcp-mumbai/gallery-01.jpg" alt="Koi pond wetland filter" />
+                <img src="r2s-projects-photos/assets/projects/project-02-koi-pond-rcp-mumbai/gallery-02.jpg" alt="Koi pond landscape edge" />
+              </div>
+              <span class="proj-status">Completed</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">Specialised Works</span>
+              <h3>Koi Pond &amp; Wetland Filter</h3>
+              <p class="proj-loc">RCP, Mumbai</p>
+              <ul class="proj-metrics">
+                <li><strong>250 m²</strong><span>Pond Area</span></li>
+                <li><strong>Natural</strong><span>Filtration</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>Finished koi pond with rock waterfall feature in a mall atrium setting</li>
+                <li>Wetland filter designed for natural biological treatment</li>
+                <li>Landscape edge works coordinated with the occupied public space</li>
+                <li>Delivered as a completed specialised water-feature package</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="project-row">
+          <article class="proj-card card-tilt reveal-left" data-category="MEP" data-status="Completed">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-06-ff-bkc-mumbai-mep/cover.jpg" alt="Fire fighting pump room row BKC Mumbai MEP" />
+                <img src="r2s-projects-photos/assets/projects/project-06-ff-bkc-mumbai-mep/gallery-01.jpg" alt="Fire fighting pumps BKC" />
+                <img src="r2s-projects-photos/assets/projects/project-06-ff-bkc-mumbai-mep/gallery-02.jpg" alt="Fire fighting ring main" />
+              </div>
+              <span class="proj-status">Completed</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">MEP</span>
+              <h3>Fire Fighting System</h3>
+              <p class="proj-loc">BKC, Mumbai</p>
+              <ul class="proj-metrics">
+                <li><strong>6 Pump Sets</strong><span>Each 500 GPM</span></li>
+                <li><strong>1.8 km</strong><span>Ring Main</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>Fire-fighting pump room with six 500 GPM pump sets</li>
+                <li>1.8 km ring-main distribution across the BKC facility</li>
+                <li>MEP execution including valves, headers and commissioning</li>
+                <li>Completed to occupancy fire-safety requirements</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+
+          <div class="timeline-node" data-year="2023">
+            <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
+              <circle class="dot-circle" cx="16" cy="16" r="6" fill="var(--paper)" stroke="var(--gold)" stroke-width="2" />
+              <g class="dot-icon" transform="translate(10,10) scale(0.5)">
+                <path class="icon-stroke" d="M12 8v4l2.5 1.5M12 3a9 9 0 1 0 9 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <circle class="icon-stroke" cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              </g>
+            </svg>
+            <span class="timeline-year">2023</span>
+          </div>
+
+          <article class="proj-card card-tilt reveal-right" data-category="MEP" data-status="Completed">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-07-gas-suppression-malad-mep/cover.jpg" alt="Gas suppression system Malad Dorf Ketal MEP" />
+                <img src="r2s-projects-photos/assets/projects/project-07-gas-suppression-malad-mep/gallery-01.jpg" alt="NOVEC1230 cylinder bank" />
+                <img src="r2s-projects-photos/assets/projects/project-07-gas-suppression-malad-mep/gallery-02.jpg" alt="Gas suppression zone piping" />
+              </div>
+              <span class="proj-status">Completed</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">MEP</span>
+              <h3>Gas Suppression System — Dorf Ketal</h3>
+              <p class="proj-loc">Dorf Ketal, Malad, Mumbai</p>
+              <ul class="proj-metrics">
+                <li><strong>120 Cylinders</strong><span>NOVEC1230</span></li>
+                <li><strong>8 Zones</strong><span>Protected</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>Clean-agent suppression using NOVEC1230 cylinder banks</li>
+                <li>Eight protected zones with sequenced discharge logic</li>
+                <li>Pipework, detection interface and room integrity coordination</li>
+                <li>Completed MEP package at the Dorf Ketal Malad facility</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="project-row">
+          <article class="proj-card card-tilt reveal-left" data-category="Turnkey" data-status="Ongoing">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/cover.jpg" alt="Turnkey construction foundation aerial shot Surat" />
+                <img src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/gallery-01.jpg" alt="Turnkey structure works Surat" />
+                <img src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/gallery-02.jpg" alt="Turnkey site progress Surat" />
+              </div>
+              <span class="proj-status is-ongoing">Ongoing</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">Turnkey</span>
+              <h3>Turnkey Residential / Commercial Project</h3>
+              <p class="proj-loc">Surat, Gujarat</p>
+              <ul class="proj-metrics">
+                <li><strong>26,000 m²</strong><span>Built-up Area</span></li>
+                <li><strong>RCC</strong><span>Structure</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>End-to-end turnkey delivery from foundations through superstructure</li>
+                <li>26,000 m² built-up residential and commercial mix</li>
+                <li>RCC frame with coordinated MEP and finishing packages</li>
+                <li>Currently ongoing on site in Surat</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+
+          <div class="timeline-node" data-year="2023">
+            <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
+              <circle class="dot-circle" cx="16" cy="16" r="6" fill="var(--paper)" stroke="var(--gold)" stroke-width="2" />
+              <g class="dot-icon" transform="translate(10,10) scale(0.5)">
+                <path class="icon-stroke" d="M4 20V9l8-5 8 5v11M4 20h16M10 20v-6h4v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </g>
+            </svg>
+            <span class="timeline-year">2023</span>
+          </div>
+
+          <article class="proj-card card-tilt reveal-right" data-category="MEP" data-status="Completed">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/cover.jpg" alt="HVAC chilled water tank BKC Mumbai MEP" />
+                <img src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/gallery-01.jpg" alt="HVAC plant BKC" />
+                <img src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/gallery-02.jpg" alt="AHU installation BKC" />
+              </div>
+              <span class="proj-status">Completed</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">MEP</span>
+              <h3>HVAC System</h3>
+              <p class="proj-loc">BKC, Mumbai</p>
+              <ul class="proj-metrics">
+                <li><strong>1,200 TR</strong><span>Cooling Capacity</span></li>
+                <li><strong>3 AHUs</strong><span>Installed</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>Chilled-water HVAC plant sized at 1,200 TR</li>
+                <li>Three air-handling units installed and balanced</li>
+                <li>Pipework, insulation and controls coordinated with the BKC MEP stack</li>
+                <li>Completed and handed over</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="project-row">
+          <article class="proj-card card-tilt reveal-left" data-category="Special" data-status="Completed">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-05-ev-charging-station-mumbai/cover.jpg" alt="EV charging station canopy with electric bus charging Mumbai" />
+                <img src="r2s-projects-photos/assets/projects/project-05-ev-charging-station-mumbai/gallery-01.jpg" alt="EV charging bays Mumbai" />
+                <img src="r2s-projects-photos/assets/projects/project-05-ev-charging-station-mumbai/gallery-02.jpg" alt="EV station electrical works" />
+              </div>
+              <span class="proj-status">Completed</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">Specialised Works</span>
+              <h3>EV Charging Station</h3>
+              <p class="proj-loc">Mumbai (MMR Bus depot)</p>
+              <ul class="proj-metrics">
+                <li><strong>20</strong><span>Charging Bays</span></li>
+                <li><strong>1 MW</strong><span>Capacity</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>Finished charging canopy with active electric-bus charging</li>
+                <li>Twenty bays at 1 MW aggregate capacity</li>
+                <li>Civil, canopy and electrical coordination at the MMR depot</li>
+                <li>Completed specialised infrastructure package</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+
+          <div class="timeline-node" data-year="2024">
+            <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
+              <circle class="dot-circle" cx="16" cy="16" r="6" fill="var(--paper)" stroke="var(--gold)" stroke-width="2" />
+              <g class="dot-icon" transform="translate(10.5,10) scale(0.48)">
+                <path class="icon-stroke" d="M13 2L4 14h8l-1 8 9-12h-8l1-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </g>
+            </svg>
+            <span class="timeline-year">2024</span>
+          </div>
+
+          <article class="proj-card card-tilt reveal-right" data-category="Oil &amp; Gas" data-status="Completed">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/cover.jpg" alt="HPCL Refinery Pachpadra with cranes against dramatic sky" />
+                <img src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/gallery-01.jpg" alt="HPCL refinery process units" />
+                <img src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/gallery-02.jpg" alt="HPCL piping and structure" />
+              </div>
+              <span class="proj-status">Completed</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">Oil &amp; Gas</span>
+              <h3>HPCL Refinery — Construction</h3>
+              <p class="proj-loc">HPCL Refinery, Pachpadra</p>
+              <ul class="proj-metrics">
+                <li><strong>3,500 MT</strong><span>Structural Work</span></li>
+                <li><strong>60+ km</strong><span>Piping</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>Oil and gas construction package at HPCL Pachpadra</li>
+                <li>3,500 MT of structural steelwork</li>
+                <li>Over 60 km of process piping</li>
+                <li>Completed industrial construction scope</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="project-row">
+          <article class="proj-card card-tilt reveal-left" data-category="Special" data-status="Completed">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-01.jpg" alt="Fountain upgradation Jamnagar" />
+                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/cover.jpg" alt="Upgraded musical fountain night lighting" />
+                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-02.jpg" alt="Fountain controls and lighting" />
+              </div>
+              <span class="proj-status">Completed</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">Specialised Works</span>
+              <h3>Upgradation of Fountain</h3>
+              <p class="proj-loc">Reliance (Jio), Jamnagar, Gujarat</p>
+              <ul class="proj-metrics">
+                <li><strong>100 m²</strong><span>Fountain Area</span></li>
+                <li><strong>Advanced</strong><span>Lighting &amp; Controls</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>Upgrade of the existing musical fountain show system</li>
+                <li>New lighting scenes and control logic</li>
+                <li>Retained 100 m² display area with improved reliability</li>
+                <li>Completed specialised works package</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+
+          <div class="timeline-node" data-year="2025">
+            <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
+              <circle class="dot-circle" cx="16" cy="16" r="6" fill="var(--paper)" stroke="var(--gold)" stroke-width="2" />
+              <g class="dot-icon" transform="translate(10,10) scale(0.5)">
+                <path class="icon-stroke" d="M4 18c2-6 4-8 8-8s6 2 8 8M8 18v2M16 18v2M5 10h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </g>
+            </svg>
+            <span class="timeline-year">2025</span>
+          </div>
+
+          <article class="proj-card card-tilt reveal-right" data-category="MEP" data-status="Completed">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-09-phe-bkc-mumbai-mep/cover.jpg" alt="PHE booster pump rows BKC Mumbai MEP" />
+                <img src="r2s-projects-photos/assets/projects/project-09-phe-bkc-mumbai-mep/gallery-01.jpg" alt="PHE water supply pumps" />
+                <img src="r2s-projects-photos/assets/projects/project-09-phe-bkc-mumbai-mep/gallery-02.jpg" alt="PHE plant room BKC" />
+              </div>
+              <span class="proj-status">Completed</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">MEP</span>
+              <h3>Public Health Engineering (PHE) System</h3>
+              <p class="proj-loc">BKC, Mumbai</p>
+              <ul class="proj-metrics">
+                <li><strong>100 KLD</strong><span>Water Supply</span></li>
+                <li><strong>6</strong><span>Pump Sets</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>PHE water-supply system sized at 100 KLD</li>
+                <li>Six booster pump sets in a linear plant-room layout</li>
+                <li>Distribution, valves and commissioning with the BKC MEP stack</li>
+                <li>Completed public-health engineering package</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="project-row">
+          <article class="proj-card card-tilt reveal-left" data-category="MEP" data-status="Completed">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-10-ro-uv-bkc-mumbai-mep/cover.jpg" alt="RO UV membrane bank BKC Mumbai MEP" />
+                <img src="r2s-projects-photos/assets/projects/project-10-ro-uv-bkc-mumbai-mep/gallery-01.jpg" alt="RO UV treatment trains" />
+                <img src="r2s-projects-photos/assets/projects/project-10-ro-uv-bkc-mumbai-mep/gallery-02.jpg" alt="RO UV skid BKC" />
+              </div>
+              <span class="proj-status">Completed</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">MEP</span>
+              <h3>RO &amp; UV Water Treatment System</h3>
+              <p class="proj-loc">BKC, Mumbai</p>
+              <ul class="proj-metrics">
+                <li><strong>50 KLD</strong><span>Capacity</span></li>
+                <li><strong>2</strong><span>Treatment Trains</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>Reverse-osmosis and UV treatment at 50 KLD</li>
+                <li>Two parallel treatment trains for duty and standby</li>
+                <li>Membrane skids, UV reactors and interconnecting pipework</li>
+                <li>Completed water-treatment MEP package</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+
+          <div class="timeline-node" data-year="2024 – 2025">
+            <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
+              <circle class="dot-circle" cx="16" cy="16" r="6" fill="var(--paper)" stroke="var(--gold)" stroke-width="2" />
+              <g class="dot-icon" transform="translate(10,10) scale(0.5)">
+                <path class="icon-stroke" d="M4 18h16M6 18V8h4v10M14 18V6h4v12M8 8h.01M16 6h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </g>
+            </svg>
+            <span class="timeline-year">2024 – 2025</span>
+          </div>
+
+          <article class="proj-card card-tilt reveal-right" data-category="PMC" data-status="Completed">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/cover.jpg" alt="Vantara Aquarium night exterior with whale sculpture" />
+                <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-01.jpg" alt="Vantara Aquarium interior exhibits" />
+                <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-02.jpg" alt="Vantara Aquarium gallery exhibits" />
+                <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-03.jpg" alt="Vantara Aquarium interior detail" />
+                <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-04.jpg" alt="Vantara Aquarium feature display" />
+              </div>
+              <span class="proj-status">Completed</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">PMC</span>
+              <h3>Vantara Aquarium — PMC</h3>
+              <p class="proj-loc">Gujarat</p>
+              <ul class="proj-metrics">
+                <li><strong>2M+ litre</strong><span>Total Capacity</span></li>
+                <li><strong>50+</strong><span>Marine Species</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>Full PMC for a world-class aquarium facility</li>
+                <li>Iconic whale sculpture and illuminated exterior coordination</li>
+                <li>Life-support, exhibits and public-realm interfaces</li>
+                <li>Completed project-management consultancy scope</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="project-row project-row--upcoming">
+          <article class="proj-card card-tilt reveal-left" data-category="CBG" data-status="Upcoming">
+            <div class="proj-card-photo">
+              <div class="proj-slideshow">
+                <img src="assets/biogas-capabilities.jpg" alt="Compressed Biogas plant capabilities" />
+                <img src="assets/biogas-reference.png" alt="Concept rendering of the CBG plant" />
+              </div>
+              <span class="proj-status is-upcoming">Upcoming</span>
+              <div class="proj-slide-nav">
+                <button type="button" class="slide-prev" aria-label="Previous image">‹</button>
+                <button type="button" class="slide-next" aria-label="Next image">›</button>
+              </div>
+            </div>
+            <div class="proj-card-body">
+              <span class="proj-cat">Compressed Biogas</span>
+              <h3>Compressed Biogas (CBG) Plant</h3>
+              <p class="proj-loc">Clean energy facility, India</p>
+              <ul class="proj-metrics">
+                <li><strong>RCC</strong><span>Process Area</span></li>
+                <li><strong>2026</strong><span>Target Commissioning</span></li>
+              </ul>
+              <button class="proj-view" type="button">View Project <span aria-hidden="true">→</span></button>
+              <ul class="proj-details">
+                <li>Upcoming Compressed Biogas project for a cleaner, greener and more sustainable future</li>
+                <li>Leveraging advanced technology and disciplined execution</li>
+                <li>Contributing to India's growing clean energy ecosystem</li>
+                <li>Renewable energy, waste to value, and a lower carbon footprint</li>
+              </ul>
+              <button class="proj-close" type="button" aria-label="Close project">×</button>
+            </div>
+          </article>
+
+          <div class="timeline-node" data-year="2026">
+            <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
+              <circle class="dot-circle" cx="16" cy="16" r="6" fill="var(--paper)" stroke="var(--gold)" stroke-width="2" />
+              <g class="dot-icon" transform="translate(10,9.5) scale(0.5)">
+                <!-- flame icon — signals biogas / clean energy (svgrepo.com style) -->
+                <path class="icon-stroke" d="M12 2s-1.5 3-1.5 6c0 1.2.3 2.3.8 3.2C10 10 8.5 8.2 8.5 6c0 0-3 3-3 7a6.5 6.5 0 0 0 13 0c0-5-4-8-4-8-.2 2-1 3.5-2.5 4.5C12.5 8 12 2 12 2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </svg>
+            <span class="timeline-year">2026</span>
+          </div>
+          <div class="project-row-spacer" aria-hidden="true"></div>
         </div>
       </div>
-      <div class="proj-featured-copy reveal-right">
-        <span class="proj-category-pill" style="--cat-color:#d4ac5a">PMC</span>
-        <h2 id="featured-title">
-          Vantara Aquarium
-          <em>PMC</em>
-        </h2>
-        <div class="proj-meta-row">
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
-            Rajkot, Gujarat
-          </span>
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            Project Management Consultancy
-          </span>
-        </div>
-        <p>One of the most visually striking projects in R2S's portfolio — a world-class aquarium facility featuring the iconic whale sculpture and a spectacular illuminated exterior. Full PMC scope delivered.</p>
-        <a class="button" href="contact.html">Discuss Your Project <span aria-hidden="true">→</span></a>
-      </div>
+      <p class="proj-empty" hidden>No projects match this filter.</p>
     </section>
 
-    <!-- ── 3. FILTER BAR ──────────────────────────────────────── -->
-    <section class="proj-filter-section" aria-label="Project filter">
-      <div class="proj-filter-inner section-shell">
-        <div class="proj-filter-heading reveal-up">
-          <p class="eyebrow">All Projects</p>
-          <h2>The Full Portfolio</h2>
-        </div>
-        <div class="proj-filter-tabs" role="group" aria-label="Filter by category">
-          <button class="filter-btn is-active" data-filter="all">All <span>11</span></button>
-          <button class="filter-btn" data-filter="MEP">MEP <span>5</span></button>
-          <button class="filter-btn" data-filter="Oil & Gas">Oil & Gas <span>1</span></button>
-          <button class="filter-btn" data-filter="PMC">PMC <span>1</span></button>
-          <button class="filter-btn" data-filter="Turnkey">Turnkey <span>1</span></button>
-          <button class="filter-btn" data-filter="Special">Special Projects <span>3</span></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 4. PROJECT GRID ───────────────────────────────────── -->
-    <section class="proj-grid-section section-shell" aria-label="Project gallery">
-      <div class="proj-grid" id="proj-grid">
-
-        <!-- 01 — Fountain Jamnagar -->
-        <article class="proj-card card-tilt reveal-up" data-category="Special" style="--reveal-delay:0ms">
-          <div class="proj-card-photo">
-            <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/cover.jpg" alt="Musical fountain Jamnagar dusk with water reflection" loading="lazy" />
-          </div>
-          <div class="proj-card-body">
-            <span class="proj-category-pill" style="--cat-color:#6bd081">Special Projects</span>
-            <h3>Musical Fountain</h3>
-            <p class="proj-card-sub">SP-Reliance Township · Jamnagar</p>
-            <a class="proj-card-link" href="contact.html" aria-label="Enquire about Musical Fountain project">Enquire →</a>
-          </div>
-        </article>
-
-        <!-- 02 — Koi Pond Mumbai -->
-        <article class="proj-card card-tilt reveal-up" data-category="Special" style="--reveal-delay:80ms">
-          <div class="proj-card-photo">
-            <img src="r2s-projects-photos/assets/projects/project-02-koi-pond-rcp-mumbai/cover.jpg" alt="Koi pond with rock waterfall and mall atrium backdrop" loading="lazy" />
-          </div>
-          <div class="proj-card-body">
-            <span class="proj-category-pill" style="--cat-color:#6bd081">Special Projects</span>
-            <h3>Koi Pond & Wetland Filter</h3>
-            <p class="proj-card-sub">SP-RCP · Mumbai</p>
-            <a class="proj-card-link" href="contact.html" aria-label="Enquire about Koi Pond project">Enquire →</a>
-          </div>
-        </article>
-
-        <!-- 03 — HPCL Refinery -->
-        <article class="proj-card card-tilt reveal-up" data-category="Oil & Gas" style="--reveal-delay:160ms">
-          <div class="proj-card-photo">
-            <img src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/cover.jpg" alt="HPCL Refinery Pachpadra with cranes against dramatic sky" loading="lazy" />
-          </div>
-          <div class="proj-card-body">
-            <span class="proj-category-pill" style="--cat-color:#d4ac5a">Oil & Gas</span>
-            <h3>Oil & Gas Construction</h3>
-            <p class="proj-card-sub">HPCL Refinery · Pachpadra</p>
-            <a class="proj-card-link" href="contact.html" aria-label="Enquire about HPCL project">Enquire →</a>
-          </div>
-        </article>
-
-        <!-- 04 — Turnkey Surat -->
-        <article class="proj-card card-tilt reveal-up" data-category="Turnkey" style="--reveal-delay:0ms">
-          <div class="proj-card-photo">
-            <img src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/cover.jpg" alt="Turnkey construction foundation aerial shot Surat" loading="lazy" />
-          </div>
-          <div class="proj-card-body">
-            <span class="proj-category-pill" style="--cat-color:#b8a0e0">Turnkey</span>
-            <h3>Turnkey Construction</h3>
-            <p class="proj-card-sub">Surat, Gujarat</p>
-            <a class="proj-card-link" href="contact.html" aria-label="Enquire about Turnkey project">Enquire →</a>
-          </div>
-        </article>
-
-        <!-- 05 — EV Charging Station -->
-        <article class="proj-card card-tilt reveal-up" data-category="Special" style="--reveal-delay:80ms">
-          <div class="proj-card-photo">
-            <img src="r2s-projects-photos/assets/projects/project-05-ev-charging-station-mumbai/cover.jpg" alt="EV charging station canopy with electric bus charging Mumbai" loading="lazy" />
-          </div>
-          <div class="proj-card-body">
-            <span class="proj-category-pill" style="--cat-color:#6bd081">Special Projects</span>
-            <h3>EV Charging Station</h3>
-            <p class="proj-card-sub">Mumbai, Maharashtra</p>
-            <a class="proj-card-link" href="contact.html" aria-label="Enquire about EV Charging project">Enquire →</a>
-          </div>
-        </article>
-
-        <!-- 06 — Fire Fighting BKC -->
-        <article class="proj-card card-tilt reveal-up" data-category="MEP" style="--reveal-delay:160ms">
-          <div class="proj-card-photo">
-            <img src="r2s-projects-photos/assets/projects/project-06-ff-bkc-mumbai-mep/cover.jpg" alt="Fire fighting pump room row BKC Mumbai MEP" loading="lazy" />
-          </div>
-          <div class="proj-card-body">
-            <span class="proj-category-pill" style="--cat-color:#5ab4d4">MEP</span>
-            <h3>Fire Fighting Systems</h3>
-            <p class="proj-card-sub">BKC Mumbai · MEP</p>
-            <a class="proj-card-link" href="contact.html" aria-label="Enquire about Fire Fighting project">Enquire →</a>
-          </div>
-        </article>
-
-        <!-- 07 — Gas Suppression -->
-        <article class="proj-card card-tilt reveal-up" data-category="MEP" style="--reveal-delay:0ms">
-          <div class="proj-card-photo">
-            <img src="r2s-projects-photos/assets/projects/project-07-gas-suppression-malad-mep/cover.jpg" alt="Gas suppression system Malad Dorf Ketal MEP" loading="lazy" />
-          </div>
-          <div class="proj-card-body">
-            <span class="proj-category-pill" style="--cat-color:#5ab4d4">MEP</span>
-            <h3>Gas Suppression System</h3>
-            <p class="proj-card-sub">Dorf Ketal · Malad</p>
-            <a class="proj-card-link" href="contact.html" aria-label="Enquire about Gas Suppression project">Enquire →</a>
-          </div>
-        </article>
-
-        <!-- 08 — HVAC BKC -->
-        <article class="proj-card card-tilt reveal-up" data-category="MEP" style="--reveal-delay:80ms">
-          <div class="proj-card-photo">
-            <img src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/cover.jpg" alt="HVAC chilled water tank BKC Mumbai MEP" loading="lazy" />
-          </div>
-          <div class="proj-card-body">
-            <span class="proj-category-pill" style="--cat-color:#5ab4d4">MEP</span>
-            <h3>HVAC Systems</h3>
-            <p class="proj-card-sub">BKC Mumbai · MEP</p>
-            <a class="proj-card-link" href="contact.html" aria-label="Enquire about HVAC project">Enquire →</a>
-          </div>
-        </article>
-
-        <!-- 09 — PHE BKC -->
-        <article class="proj-card card-tilt reveal-up" data-category="MEP" style="--reveal-delay:160ms">
-          <div class="proj-card-photo">
-            <img src="r2s-projects-photos/assets/projects/project-09-phe-bkc-mumbai-mep/cover.jpg" alt="PHE booster pump rows BKC Mumbai MEP" loading="lazy" />
-          </div>
-          <div class="proj-card-body">
-            <span class="proj-category-pill" style="--cat-color:#5ab4d4">MEP</span>
-            <h3>PHE Systems</h3>
-            <p class="proj-card-sub">BKC Mumbai · MEP</p>
-            <a class="proj-card-link" href="contact.html" aria-label="Enquire about PHE project">Enquire →</a>
-          </div>
-        </article>
-
-        <!-- 10 — RO UV BKC -->
-        <article class="proj-card card-tilt reveal-up" data-category="MEP" style="--reveal-delay:0ms">
-          <div class="proj-card-photo">
-            <img src="r2s-projects-photos/assets/projects/project-10-ro-uv-bkc-mumbai-mep/cover.jpg" alt="RO UV membrane bank BKC Mumbai MEP" loading="lazy" />
-          </div>
-          <div class="proj-card-body">
-            <span class="proj-category-pill" style="--cat-color:#5ab4d4">MEP</span>
-            <h3>RO & UV Systems</h3>
-            <p class="proj-card-sub">BKC Mumbai · MEP</p>
-            <a class="proj-card-link" href="contact.html" aria-label="Enquire about RO UV project">Enquire →</a>
-          </div>
-        </article>
-
-        <!-- 11 — Vantara Aquarium (in grid too) -->
-        <article class="proj-card card-tilt reveal-up proj-card--featured" data-category="PMC" style="--reveal-delay:80ms">
-          <div class="proj-card-photo">
-            <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-02.jpg" alt="Vantara Aquarium interior exhibits" loading="lazy" />
-          </div>
-          <div class="proj-card-body">
-            <span class="proj-category-pill" style="--cat-color:#d4ac5a">PMC</span>
-            <h3>Vantara Aquarium</h3>
-            <p class="proj-card-sub">Rajkot, Gujarat · PMC</p>
-            <a class="proj-card-link" href="contact.html" aria-label="Enquire about Vantara Aquarium project">Enquire →</a>
-          </div>
-        </article>
-
-      </div><!-- /.proj-grid -->
-    </section>
-
-    <!-- ── 5. CTA ─────────────────────────────────────────────── -->
     <section class="proj-cta" aria-labelledby="proj-cta-title">
-      <div class="proj-cta-inner reveal-up">
-        <p class="eyebrow">Start a Project</p>
-        <h2 id="proj-cta-title">Ready to Build<br /><em>Something Great?</em></h2>
-        <p>From complex MEP systems to landmark landmark structures — we're ready to take on your next challenge.</p>
-        <a class="button" href="contact.html">Get in Touch <span aria-hidden="true">→</span></a>
+      <div class="proj-cta-inner">
+        <h2 id="proj-cta-title">Cleaner Air<br />Healthier Communities<br /><em>A Greener Planet</em></h2>
+        <div class="proj-cta-stats">
+          <article>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 14c4-8 12-8 16 0"/><path d="M8 14v4M16 14v4M4 18h16"/></svg>
+            <span>Lower<br />Carbon Footprint</span>
+          </article>
+          <article>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 8h10l-1 12H8L7 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M12 12v4"/></svg>
+            <span>Improved<br />Waste Management</span>
+          </article>
+          <article>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
+            <span>Renewable<br />Energy Source</span>
+          </article>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -309,28 +649,24 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-      <nav class="footer-nav-col" aria-label="Project categories">
-        <h3 class="footer-nav-heading">Project Types</h3>
+      <nav class="footer-nav-col" aria-label="Our services">
+        <h3 class="footer-nav-heading">Our Services</h3>
         <ul>
-          <li><a href="projects.html">Oil & Gas</a></li>
-          <li><a href="projects.html">MEP Systems</a></li>
-          <li><a href="projects.html">PMC</a></li>
-          <li><a href="projects.html">Turnkey</a></li>
-          <li><a href="projects.html">Special Projects</a></li>
+          <li><a href="services.html">PMC</a></li>
+          <li><a href="services.html">Oil &amp; Gas</a></li>
+          <li><a href="services.html">Turnkey Projects</a></li>
+          <li><a href="biogas.html">Compressed Biogas</a></li>
+          <li><a href="services.html">MEP</a></li>
         </ul>
       </nav>
       <div class="footer-contact-col">
-        <h3 class="footer-nav-heading">Connect</h3>
+        <h3 class="footer-nav-heading">Contact</h3>
         <address>
           <p>Surat, Gujarat, India</p>
           <p><a href="mailto:sd.sharma@r2scc.com">sd.sharma@r2scc.com</a></p>
           <p><a href="tel:+919222831493">+91 92228 31493</a></p>
         </address>
-        <div class="footer-social" aria-label="Social media">
-          <a href="#" aria-label="LinkedIn" class="social-link">in</a>
-          <a href="#" aria-label="Instagram" class="social-link">ig</a>
-          <a href="#" aria-label="YouTube" class="social-link">yt</a>
-        </div>
+        <p class="footer-mantra">Engineering<br />Sustainable<br />Tomorrows</p>
       </div>
     </div>
     <div class="footer-bottom">

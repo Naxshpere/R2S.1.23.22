@@ -4,7 +4,7 @@
   const root = document.documentElement;
   const dot = document.createElement('div');
   const ring = document.createElement('div');
-  const hoverTargets = document.querySelectorAll('a, button, .button, .text-link, .site-nav > a');
+  const hoverTargets = document.querySelectorAll('a, button:not(.proj-close):not(.slide-prev):not(.slide-next):not(.filter-btn), .button, .text-link, .site-nav > a');
   const magneticTargets = document.querySelectorAll('.button, .text-link, .biogas-meta > a');
   const primaryTargetSelector = '.hero-button, .nav-quote, .biogas-meta > a';
   const target = { x: -100, y: -100 };
@@ -18,8 +18,8 @@
   const clamp = (value, limit) => Math.max(-limit, Math.min(limit, value));
 
   function animateRing() {
-    ringPosition.x += (target.x - ringPosition.x) * 0.16;
-    ringPosition.y += (target.y - ringPosition.y) * 0.16;
+    ringPosition.x += (target.x - ringPosition.x) * 0.32;
+    ringPosition.y += (target.y - ringPosition.y) * 0.32;
     ring.style.transform = `translate3d(${ringPosition.x}px, ${ringPosition.y}px, 0) translate3d(-50%, -50%, 0)`;
     requestAnimationFrame(animateRing);
   }
