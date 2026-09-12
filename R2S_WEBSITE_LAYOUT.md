@@ -218,3 +218,9 @@ The only sitemap item that needs a decision before implementation is `Electrical
 4. privacy policy and enquircy from recipient email
 5. offical policy and enquiry form recipinet email
 6. privacy policy and enquiry form recipinent email  
+
+
+site bio gas major update in the cover and the front page 
+build company profile in canva 
+default permission is main system in the upcoming project to scaffold a custom agent for your workflow
+privacy policy and enquriry from recipient email
