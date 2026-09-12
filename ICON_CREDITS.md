@@ -19,5 +19,11 @@ All reusable interface icons in `assets/icons/icon-*.svg` are local SVG files fr
 | `assets/icons/icon-target.svg` | SVG Repo, Solar Icons | CC0 1.0 / public domain dedication |
 | `assets/icons/icon-wrench.svg` | SVG Repo, Solar Icons | CC0 1.0 / public domain dedication |
 | `assets/icons/icon-users.svg` | SVG Repo, Solar Icons | CC0 1.0 / public domain dedication |
+| `assets/icons/icon-chat.svg` | SVG Repo, Solar Icons | CC0 1.0 / public domain dedication |
+| `assets/icons/icon-handshake.svg` | SVG Repo, Solar Icons | CC0 1.0 / public domain dedication |
+| `assets/icons/icon-settings.svg` | SVG Repo, Solar Icons | CC0 1.0 / public domain dedication |
+| `assets/icons/icon-clock.svg` | SVG Repo, Solar Icons | CC0 1.0 / public domain dedication |
+| `assets/icons/icon-document.svg` | SVG Repo, Solar Icons | CC0 1.0 / public domain dedication |
+| `assets/icons/icon-chart.svg` | SVG Repo, Solar Icons | CC0 1.0 / public domain dedication |
 
 The Biogas page also contains inline, page-specific sustainability illustrations. Those are authored inline in `biogas.html`, not external icon requests.

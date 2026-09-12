@@ -217,5 +217,4 @@ The only sitemap item that needs a decision before implementation is `Electrical
 3. final company logo and brand colors 
 4. privacy policy and enquircy from recipient email
 5. offical policy and enquiry form recipinet email
-6. privacy policy and enquiry form recipinent email 
-
+6. privacy policy and enquiry form recipinent email  
