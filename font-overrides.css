@@ -1,2 +1,3 @@
-:root { --sans: 'Inter', sans-serif; }
-body { font-family: 'Inter', sans-serif; }
+/* font-overrides.css — intentionally empty.
+   Inter is now declared as --sans in styles.css and loaded via <link> in every page <head>.
+   This file is kept so existing <link> tags do not 404. */

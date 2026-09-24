@@ -1,0 +1,206 @@
+/* ==========================================================================
+   intro.css — GSAP Opening Animation Styles for R2S Creative Construction
+   Compositor-only (transform & opacity), 60 FPS, mobile-ready, non-blocking
+   ========================================================================== */
+
+/* ── Curtain Overlay ─────────────────────────────────────────────────────── */
+.intro-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.intro-curtain.pointer-pass {
+  pointer-events: none !important;
+}
+
+.intro-curtain.is-done {
+  display: none !important;
+}
+
+/* Split curtain panels */
+.curtain-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 50.5%; /* slight overlap avoids subpixel gaps */
+  background: #0d0c0a;
+  z-index: 1;
+  will-change: transform;
+}
+
+.panel-top {
+  top: 0;
+  transform-origin: top center;
+  border-bottom: 1px solid rgba(212, 172, 90, 0.28);
+}
+
+.panel-bottom {
+  bottom: 0;
+  transform-origin: bottom center;
+  border-top: 1px solid rgba(212, 172, 90, 0.28);
+}
+
+/* Center gold dividing line / beam */
+.curtain-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(90deg, transparent 0%, var(--gold, #d4ac5a) 50%, transparent 100%);
+  box-shadow: 0 0 20px rgba(212, 172, 90, 0.6);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Center brand showcase */
+.intro-brand {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  pointer-events: none;
+}
+
+.intro-logo-wrap {
+  width: 68px;
+  height: 68px;
+  border: 1px solid rgba(212, 172, 90, 0.85);
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  background: rgba(15, 14, 12, 0.7);
+  box-shadow: 0 0 28px rgba(212, 172, 90, 0.25);
+  will-change: transform, opacity;
+}
+
+.intro-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.intro-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.intro-title {
+  color: var(--cream, #f3eee3);
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.intro-tag {
+  color: var(--gold, #d4ac5a);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.intro-tag b {
+  font-weight: 400;
+  padding: 0 4px;
+  opacity: 0.6;
+}
+
+/* Skip button */
+.intro-skip {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  z-index: 10;
+  background: rgba(17, 18, 15, 0.6);
+  color: var(--gold, #d4ac5a);
+  border: 1px solid rgba(212, 172, 90, 0.4);
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s, border-color 0.2s, opacity 0.2s;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.intro-skip:hover {
+  background: var(--gold, #d4ac5a);
+  color: var(--ink, #0f0e0c);
+}
+
+/* ── Hero Reveal Mask Wrappers ────────────────────────────────────────────── */
+/* Overflow masks cleanly clip upward sliding typography */
+.hero-anim-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.hero-btn-wrap {
+  display: inline-block;
+  overflow: visible;
+}
+
+/* Initial hidden state for hero elements only while JS active & intro running */
+html.js:not(.intro-skipped):not(.intro-done) .hero-anim-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ── Reduced Motion / Fallback ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .intro-curtain {
+    display: none !important;
+  }
+  .hero-anim-hidden {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+}
+
+/* Mobile fine-tuning */
+@media (max-width: 600px) {
+  .intro-logo-wrap {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 14px;
+  }
+  .intro-logo {
+    width: 44px;
+    height: 44px;
+  }
+  .intro-title {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+  .intro-tag {
+    font-size: 8px;
+    letter-spacing: 0.22em;
+  }
+  .intro-skip {
+    top: 16px;
+    right: 16px;
+    padding: 6px 12px;
+  }
+}

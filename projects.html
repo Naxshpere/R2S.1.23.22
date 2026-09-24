@@ -1,33 +1,49 @@
 <!doctype html>
 <html lang="en">
+
 <head>
+  <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="R2S Creative Construction LLP projects — oil and gas, MEP, PMC, aquariums, fountains, EV stations and turnkey construction across India." />
+  <meta name="description"
+    content="R2S Creative Construction LLP projects — oil and gas, MEP, PMC, aquariums, fountains, EV stations and turnkey construction across India." />
   <title>Projects | R2S Creative Construction LLP</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/logo_r2s.png" type="image/png" />
+  <meta name="theme-color" content="#0f0e0c" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects | R2S Creative Construction LLP" />
+  <meta property="og:description"
+    content="Engineering projects across Oil & Gas, MEP, PMC, Turnkey and Specialised Works across India." />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="font-overrides.css" />
   <link rel="stylesheet" href="projects.css" />
   <link rel="stylesheet" href="cursor.css" />
-  <script src="script.js" defer></script>
-  <script src="shared.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="site.js" defer></script>
   <script src="cursor.js" defer></script>
   <script src="projects.js" defer></script>
 </head>
+
 <body class="projects-page">
+  <div class="proj-scroll-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <header class="site-header" id="top">
     <a class="brand" href="index.html" aria-label="R2S Creative Construction LLP home">
-      <span class="brand-mark"><img src="assets/logo.png" alt="R2S" /></span>
+      <span class="brand-mark"><img fetchpriority="high" src="assets/logo.png" alt="" /></span>
       <span class="brand-copy">
         <strong>R2S Creative<br />Construction LLP</strong>
         <small>Build <b>|</b> Engineer <b>|</b> Innovate</small>
       </span>
     </a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"
+      aria-label="Open navigation">
       <span></span><span></span><span></span>
     </button>
     <nav class="site-nav" id="site-menu" aria-label="Primary navigation">
@@ -41,7 +57,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
 
     <section class="proj-hero" aria-labelledby="proj-hero-title">
       <div class="proj-hero-media parallax-bg">
@@ -51,29 +67,69 @@
       <div class="proj-hero-copy">
         <p class="eyebrow" data-hero="eyebrow">Our Projects</p>
         <h1 id="proj-hero-title" data-hero="title">Building<br /><em>Real Impact</em></h1>
-        <p data-hero="copy">From complex infrastructure to specialised facilities, we deliver projects that create lasting value for businesses, communities and the environment.</p>
+        <p data-hero="copy">From complex infrastructure to specialised facilities, we deliver projects that create
+          lasting value for businesses, communities and the environment.</p>
         <div class="proj-stat-row" role="list">
           <article data-hero="stat" data-stat-index="0" role="listitem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
-            <div><strong>13+</strong><small>Projects</small></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path d="M4 19V9M10 19V5M16 19v-7M22 19H2" />
+            </svg>
+            <div><strong class="count-target" data-count="13" data-suffix="+">13+</strong><small>Projects</small></div>
           </article>
           <article data-hero="stat" data-stat-index="1" role="listitem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3.5 19c.4-3.2 2.7-5 5.5-5s5.1 1.8 5.5 5M13 19c.3-2.4 1.8-4 4-4 2 0 3.4 1.2 3.8 3.4"/></svg>
-            <div><strong>5</strong><small>Service Sectors</small></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <circle cx="9" cy="8" r="3" />
+              <circle cx="16" cy="9" r="2.5" />
+              <path d="M3.5 19c.4-3.2 2.7-5 5.5-5s5.1 1.8 5.5 5M13 19c.3-2.4 1.8-4 4-4 2 0 3.4 1.2 3.8 3.4" />
+            </svg>
+            <div><strong class="count-target" data-count="5" data-suffix="">5</strong><small>Service Sectors</small>
+            </div>
           </article>
           <article data-hero="stat" data-stat-index="2" role="listitem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 22s-7-4.4-7-11a7 7 0 1 1 14 0c0 6.6-7 11-7 11z"/><circle cx="12" cy="11" r="2.4"/></svg>
-            <div><strong>4+</strong><small>Cities Across India</small></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path d="M12 22s-7-4.4-7-11a7 7 0 1 1 14 0c0 6.6-7 11-7 11z" />
+              <circle cx="12" cy="11" r="2.4" />
+            </svg>
+            <div><strong class="count-target" data-count="4" data-suffix="+">4+</strong><small>States Across
+                India</small></div>
           </article>
           <article data-hero="stat" data-stat-index="3" role="listitem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-7-4.3-7-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 21 11c0 5.7-9 10-9 10z"/></svg>
-            <div><strong>100%</strong><small>Commitment</small></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path d="M12 21s-7-4.3-7-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 21 11c0 5.7-9 10-9 10z" />
+            </svg>
+            <div><strong class="count-target" data-count="100" data-suffix="%">100%</strong><small>Commitment</small>
+            </div>
           </article>
         </div>
       </div>
       <aside class="proj-side-label" aria-hidden="true">
         Ideas<br /><i></i>Engineered<br /><i></i>Spaces Built<br /><i></i>Potential Enabled
       </aside>
+    </section>
+
+    <!-- Filter + Search bar -->
+    <section class="proj-filter-section" data-hero="filter" aria-label="Filter projects">
+      <div class="proj-filter-inner">
+        <div class="proj-filter-pills" role="group" aria-label="Project categories">
+          <span class="filter-pill-bg" aria-hidden="true"></span>
+          <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-btn" data-filter="Oil &amp; Gas" aria-pressed="false">Oil &amp;
+            Gas</button>
+          <button type="button" class="filter-btn" data-filter="PMC" aria-pressed="false">PMC</button>
+          <button type="button" class="filter-btn" data-filter="MEP" aria-pressed="false">MEP</button>
+          <button type="button" class="filter-btn" data-filter="Turnkey" aria-pressed="false">Turnkey</button>
+          <button type="button" class="filter-btn" data-filter="Special" aria-pressed="false">Specialised Works</button>
+          <button type="button" class="filter-btn" data-filter="CBG" aria-pressed="false">Biogas</button>
+        </div>
+        <label class="proj-search">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"
+            aria-hidden="true">
+            <circle cx="11" cy="11" r="6" />
+            <path d="M20 20l-4-4" />
+          </svg>
+          <input id="proj-search" type="search" placeholder="Search projects" aria-label="Search projects" />
+        </label>
+      </div>
     </section>
 
     <div class="proj-overlay" id="proj-overlay" hidden></div>
@@ -88,10 +144,13 @@
           <div></div>
           <div class="timeline-node is-founding" data-year="EST. 2021">
             <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
-              <circle class="founding-ring" cx="16" cy="16" r="12" fill="none" stroke="var(--gold)" stroke-width="1.5" />
-              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)" stroke-width="1.5" />
+              <circle class="founding-ring" cx="16" cy="16" r="12" fill="none" stroke="var(--gold)"
+                stroke-width="1.5" />
+              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)"
+                stroke-width="1.5" />
               <g class="dot-icon" transform="translate(4,4) scale(1)">
-                <path class="icon-stroke" d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6M10 11h.01M14 11h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path class="icon-stroke" d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6M10 11h.01M14 11h.01" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
               </g>
             </svg>
             <span class="timeline-year">EST. 2021</span>
@@ -103,9 +162,15 @@
           <article class="proj-card card-tilt reveal-left" data-category="Special" data-status="Completed">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/cover.jpg" alt="Musical fountain Jamnagar dusk with water reflection" />
-                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-01.jpg" alt="Musical fountain lighting detail" />
-                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-02.jpg" alt="Musical fountain nozzles" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/cover.jpg"
+                  alt="Musical fountain Jamnagar dusk with water reflection" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-01.jpg"
+                  alt="Musical fountain lighting detail" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-02.jpg"
+                  alt="Musical fountain nozzles" />
               </div>
               <span class="proj-status">Completed</span>
               <div class="proj-slide-nav">
@@ -134,9 +199,11 @@
 
           <div class="timeline-node" data-year="2021">
             <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
-              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)" stroke-width="1.5" />
+              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)"
+                stroke-width="1.5" />
               <g class="dot-icon" transform="translate(4,4) scale(1)">
-                <path class="icon-stroke" d="M12 2.8S6 9.2 6 13.6a6 6 0 0 0 12 0C18 9.2 12 2.8 12 2.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path class="icon-stroke" d="M12 2.8S6 9.2 6 13.6a6 6 0 0 0 12 0C18 9.2 12 2.8 12 2.8z" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
               </g>
             </svg>
             <span class="timeline-year">2021</span>
@@ -145,9 +212,15 @@
           <article class="proj-card card-tilt reveal-right" data-category="Special" data-status="Completed">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-02-koi-pond-rcp-mumbai/cover.jpg" alt="Koi pond with rock waterfall and mall atrium backdrop" />
-                <img src="r2s-projects-photos/assets/projects/project-02-koi-pond-rcp-mumbai/gallery-01.jpg" alt="Koi pond wetland filter" />
-                <img src="r2s-projects-photos/assets/projects/project-02-koi-pond-rcp-mumbai/gallery-02.jpg" alt="Koi pond landscape edge" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-02-koi-pond-rcp-mumbai/cover.jpg"
+                  alt="Koi pond with rock waterfall and mall atrium backdrop" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-02-koi-pond-rcp-mumbai/gallery-01.jpg"
+                  alt="Koi pond wetland filter" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-02-koi-pond-rcp-mumbai/gallery-02.jpg"
+                  alt="Koi pond landscape edge" />
               </div>
               <span class="proj-status">Completed</span>
               <div class="proj-slide-nav">
@@ -179,9 +252,15 @@
           <article class="proj-card card-tilt reveal-left" data-category="MEP" data-status="Completed">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-06-ff-bkc-mumbai-mep/cover.jpg" alt="Fire fighting pump room row BKC Mumbai MEP" />
-                <img src="r2s-projects-photos/assets/projects/project-06-ff-bkc-mumbai-mep/gallery-01.jpg" alt="Fire fighting pumps BKC" />
-                <img src="r2s-projects-photos/assets/projects/project-06-ff-bkc-mumbai-mep/gallery-02.jpg" alt="Fire fighting ring main" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-06-ff-bkc-mumbai-mep/cover.jpg"
+                  alt="Fire fighting pump room row BKC Mumbai MEP" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-06-ff-bkc-mumbai-mep/gallery-01.jpg"
+                  alt="Fire fighting pumps BKC" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-06-ff-bkc-mumbai-mep/gallery-02.jpg"
+                  alt="Fire fighting ring main" />
               </div>
               <span class="proj-status">Completed</span>
               <div class="proj-slide-nav">
@@ -210,10 +289,13 @@
 
           <div class="timeline-node" data-year="2023">
             <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
-              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)" stroke-width="1.5" />
+              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)"
+                stroke-width="1.5" />
               <g class="dot-icon" transform="translate(4,4) scale(1)">
-                <path class="icon-stroke" d="M12 8v4l2.5 1.5M12 3a9 9 0 1 0 9 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <circle class="icon-stroke" cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <path class="icon-stroke" d="M12 8v4l2.5 1.5M12 3a9 9 0 1 0 9 9" fill="none" stroke="currentColor"
+                  stroke-width="1.8" stroke-linecap="round" />
+                <circle class="icon-stroke" cx="12" cy="12" r="3" fill="none" stroke="currentColor"
+                  stroke-width="1.8" />
               </g>
             </svg>
             <span class="timeline-year">2023</span>
@@ -222,9 +304,15 @@
           <article class="proj-card card-tilt reveal-right" data-category="MEP" data-status="Completed">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-07-gas-suppression-malad-mep/cover.jpg" alt="Gas suppression system Malad Dorf Ketal MEP" />
-                <img src="r2s-projects-photos/assets/projects/project-07-gas-suppression-malad-mep/gallery-01.jpg" alt="NOVEC1230 cylinder bank" />
-                <img src="r2s-projects-photos/assets/projects/project-07-gas-suppression-malad-mep/gallery-02.jpg" alt="Gas suppression zone piping" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-07-gas-suppression-malad-mep/cover.jpg"
+                  alt="Gas suppression system Malad Dorf Ketal MEP" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-07-gas-suppression-malad-mep/gallery-01.jpg"
+                  alt="NOVEC1230 cylinder bank" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-07-gas-suppression-malad-mep/gallery-02.jpg"
+                  alt="Gas suppression zone piping" />
               </div>
               <span class="proj-status">Completed</span>
               <div class="proj-slide-nav">
@@ -256,9 +344,15 @@
           <article class="proj-card card-tilt reveal-left" data-category="Turnkey" data-status="Ongoing">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/cover.jpg" alt="Turnkey construction foundation aerial shot Surat" />
-                <img src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/gallery-01.jpg" alt="Turnkey structure works Surat" />
-                <img src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/gallery-02.jpg" alt="Turnkey site progress Surat" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/cover.jpg"
+                  alt="Turnkey construction foundation aerial shot Surat" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/gallery-01.jpg"
+                  alt="Turnkey structure works Surat" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/gallery-02.jpg"
+                  alt="Turnkey site progress Surat" />
               </div>
               <span class="proj-status is-ongoing">Ongoing</span>
               <div class="proj-slide-nav">
@@ -287,9 +381,11 @@
 
           <div class="timeline-node" data-year="2023">
             <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
-              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)" stroke-width="1.5" />
+              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)"
+                stroke-width="1.5" />
               <g class="dot-icon" transform="translate(4,4) scale(1)">
-                <path class="icon-stroke" d="M4 20V9l8-5 8 5v11M4 20h16M10 20v-6h4v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path class="icon-stroke" d="M4 20V9l8-5 8 5v11M4 20h16M10 20v-6h4v6" fill="none" stroke="currentColor"
+                  stroke-width="1.8" stroke-linejoin="round" />
               </g>
             </svg>
             <span class="timeline-year">2023</span>
@@ -298,9 +394,15 @@
           <article class="proj-card card-tilt reveal-right" data-category="MEP" data-status="Completed">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/cover.jpg" alt="HVAC chilled water tank BKC Mumbai MEP" />
-                <img src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/gallery-01.jpg" alt="HVAC plant BKC" />
-                <img src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/gallery-02.jpg" alt="AHU installation BKC" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/cover.jpg"
+                  alt="HVAC chilled water tank BKC Mumbai MEP" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/gallery-01.jpg"
+                  alt="HVAC plant BKC" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/gallery-02.jpg"
+                  alt="AHU installation BKC" />
               </div>
               <span class="proj-status">Completed</span>
               <div class="proj-slide-nav">
@@ -332,9 +434,15 @@
           <article class="proj-card card-tilt reveal-left" data-category="Special" data-status="Completed">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-05-ev-charging-station-mumbai/cover.jpg" alt="EV charging station canopy with electric bus charging Mumbai" />
-                <img src="r2s-projects-photos/assets/projects/project-05-ev-charging-station-mumbai/gallery-01.jpg" alt="EV charging bays Mumbai" />
-                <img src="r2s-projects-photos/assets/projects/project-05-ev-charging-station-mumbai/gallery-02.jpg" alt="EV station electrical works" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-05-ev-charging-station-mumbai/cover.jpg"
+                  alt="EV charging station canopy with electric bus charging Mumbai" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-05-ev-charging-station-mumbai/gallery-01.jpg"
+                  alt="EV charging bays Mumbai" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-05-ev-charging-station-mumbai/gallery-02.jpg"
+                  alt="EV station electrical works" />
               </div>
               <span class="proj-status">Completed</span>
               <div class="proj-slide-nav">
@@ -363,9 +471,11 @@
 
           <div class="timeline-node" data-year="2024">
             <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
-              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)" stroke-width="1.5" />
+              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)"
+                stroke-width="1.5" />
               <g class="dot-icon" transform="translate(4,4) scale(1)">
-                <path class="icon-stroke" d="M13 2L4 14h8l-1 8 9-12h-8l1-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path class="icon-stroke" d="M13 2L4 14h8l-1 8 9-12h-8l1-8z" fill="none" stroke="currentColor"
+                  stroke-width="1.8" stroke-linejoin="round" />
               </g>
             </svg>
             <span class="timeline-year">2024</span>
@@ -374,9 +484,15 @@
           <article class="proj-card card-tilt reveal-right" data-category="Oil &amp; Gas" data-status="Completed">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/cover.jpg" alt="HPCL Refinery Pachpadra with cranes against dramatic sky" />
-                <img src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/gallery-01.jpg" alt="HPCL refinery process units" />
-                <img src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/gallery-02.jpg" alt="HPCL piping and structure" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/cover.jpg"
+                  alt="HPCL Refinery Pachpadra with cranes against dramatic sky" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/gallery-01.jpg"
+                  alt="HPCL refinery process units" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/gallery-02.jpg"
+                  alt="HPCL piping and structure" />
               </div>
               <span class="proj-status">Completed</span>
               <div class="proj-slide-nav">
@@ -408,9 +524,15 @@
           <article class="proj-card card-tilt reveal-left" data-category="Special" data-status="Completed">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-01.jpg" alt="Fountain upgradation Jamnagar" />
-                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/cover.jpg" alt="Upgraded musical fountain night lighting" />
-                <img src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-02.jpg" alt="Fountain controls and lighting" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-03.jpg"
+                  alt="Fountain upgradation Jamnagar" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/gallery-04.jpg"
+                  alt="Upgraded musical fountain night lighting" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-01-fountain-jamnagar/cover.jpg"
+                  alt="Fountain controls and lighting" />
               </div>
               <span class="proj-status">Completed</span>
               <div class="proj-slide-nav">
@@ -439,9 +561,11 @@
 
           <div class="timeline-node" data-year="2025">
             <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
-              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)" stroke-width="1.5" />
+              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)"
+                stroke-width="1.5" />
               <g class="dot-icon" transform="translate(4,4) scale(1)">
-                <path class="icon-stroke" d="M4 18c2-6 4-8 8-8s6 2 8 8M8 18v2M16 18v2M5 10h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path class="icon-stroke" d="M4 18c2-6 4-8 8-8s6 2 8 8M8 18v2M16 18v2M5 10h14" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
               </g>
             </svg>
             <span class="timeline-year">2025</span>
@@ -450,9 +574,15 @@
           <article class="proj-card card-tilt reveal-right" data-category="MEP" data-status="Completed">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-09-phe-bkc-mumbai-mep/cover.jpg" alt="PHE booster pump rows BKC Mumbai MEP" />
-                <img src="r2s-projects-photos/assets/projects/project-09-phe-bkc-mumbai-mep/gallery-01.jpg" alt="PHE water supply pumps" />
-                <img src="r2s-projects-photos/assets/projects/project-09-phe-bkc-mumbai-mep/gallery-02.jpg" alt="PHE plant room BKC" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-09-phe-bkc-mumbai-mep/cover.jpg"
+                  alt="PHE booster pump rows BKC Mumbai MEP" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-09-phe-bkc-mumbai-mep/gallery-01.jpg"
+                  alt="PHE water supply pumps" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-09-phe-bkc-mumbai-mep/gallery-02.jpg"
+                  alt="PHE plant room BKC" />
               </div>
               <span class="proj-status">Completed</span>
               <div class="proj-slide-nav">
@@ -484,9 +614,15 @@
           <article class="proj-card card-tilt reveal-left" data-category="MEP" data-status="Completed">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-10-ro-uv-bkc-mumbai-mep/cover.jpg" alt="RO UV membrane bank BKC Mumbai MEP" />
-                <img src="r2s-projects-photos/assets/projects/project-10-ro-uv-bkc-mumbai-mep/gallery-01.jpg" alt="RO UV treatment trains" />
-                <img src="r2s-projects-photos/assets/projects/project-10-ro-uv-bkc-mumbai-mep/gallery-02.jpg" alt="RO UV skid BKC" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-10-ro-uv-bkc-mumbai-mep/cover.jpg"
+                  alt="RO UV membrane bank BKC Mumbai MEP" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-10-ro-uv-bkc-mumbai-mep/gallery-01.jpg"
+                  alt="RO UV treatment trains" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-10-ro-uv-bkc-mumbai-mep/gallery-02.jpg"
+                  alt="RO UV skid BKC" />
               </div>
               <span class="proj-status">Completed</span>
               <div class="proj-slide-nav">
@@ -515,9 +651,11 @@
 
           <div class="timeline-node" data-year="2024 – 2025">
             <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
-              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)" stroke-width="1.5" />
+              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)"
+                stroke-width="1.5" />
               <g class="dot-icon" transform="translate(4,4) scale(1)">
-                <path class="icon-stroke" d="M4 18h16M6 18V8h4v10M14 18V6h4v12M8 8h.01M16 6h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path class="icon-stroke" d="M4 18h16M6 18V8h4v10M14 18V6h4v12M8 8h.01M16 6h.01" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
               </g>
             </svg>
             <span class="timeline-year">2024 – 2025</span>
@@ -526,11 +664,21 @@
           <article class="proj-card card-tilt reveal-right" data-category="PMC" data-status="Completed">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/cover.jpg" alt="Aquarium facility night exterior with whale sculpture" />
-                <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-01.jpg" alt="Aquarium facility interior exhibits" />
-                <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-02.jpg" alt="Aquarium facility gallery exhibits" />
-                <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-03.jpg" alt="Aquarium facility interior detail" />
-                <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-04.jpg" alt="Aquarium facility feature display" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/cover.jpg"
+                  alt="Aquarium facility night exterior with whale sculpture" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-01.jpg"
+                  alt="Aquarium facility interior exhibits" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-02.jpg"
+                  alt="Aquarium facility gallery exhibits" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-03.jpg"
+                  alt="Aquarium facility interior detail" />
+                <img loading="lazy" decoding="async"
+                  src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-04.jpg"
+                  alt="Aquarium facility feature display" />
               </div>
               <span class="proj-status">Completed</span>
               <div class="proj-slide-nav">
@@ -562,8 +710,10 @@
           <article class="proj-card card-tilt reveal-left" data-category="CBG" data-status="Upcoming">
             <div class="proj-card-photo">
               <div class="proj-slideshow">
-                <img src="assets/biogas-capabilities.jpg" alt="Compressed Biogas plant capabilities" />
-                <img src="assets/biogas-reference.png" alt="Concept rendering of the CBG plant" />
+                <img loading="lazy" decoding="async" src="assets/biogas-capabilities.jpg"
+                  alt="Compressed Biogas plant capabilities" />
+                <img loading="lazy" decoding="async" src="assets/cbg-plant-feature.jpg"
+                  alt="Concept rendering of the CBG plant" />
               </div>
               <span class="proj-status is-upcoming">Upcoming</span>
               <div class="proj-slide-nav">
@@ -592,10 +742,13 @@
 
           <div class="timeline-node" data-year="2026">
             <svg class="timeline-dot-svg" viewBox="0 0 32 32" aria-hidden="true">
-              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)" stroke-width="1.5" />
+              <circle class="dot-circle" cx="16" cy="16" r="13" fill="var(--paper)" stroke="var(--gold)"
+                stroke-width="1.5" />
               <g class="dot-icon" transform="translate(4,4) scale(1)">
                 <!-- flame icon — signals biogas / clean energy (svgrepo.com style) -->
-                <path class="icon-stroke" d="M12 2s-1.5 3-1.5 6c0 1.2.3 2.3.8 3.2C10 10 8.5 8.2 8.5 6c0 0-3 3-3 7a6.5 6.5 0 0 0 13 0c0-5-4-8-4-8-.2 2-1 3.5-2.5 4.5C12.5 8 12 2 12 2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path class="icon-stroke"
+                  d="M12 2s-1.5 3-1.5 6c0 1.2.3 2.3.8 3.2C10 10 8.5 8.2 8.5 6c0 0-3 3-3 7a6.5 6.5 0 0 0 13 0c0-5-4-8-4-8-.2 2-1 3.5-2.5 4.5C12.5 8 12 2 12 2z"
+                  fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
               </g>
             </svg>
             <span class="timeline-year">2026</span>
@@ -611,15 +764,25 @@
         <h2 id="proj-cta-title">Cleaner Air<br />Healthier Communities<br /><em>A Greener Planet</em></h2>
         <div class="proj-cta-stats">
           <article>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 14c4-8 12-8 16 0"/><path d="M8 14v4M16 14v4M4 18h16"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M4 14c4-8 12-8 16 0" />
+              <path d="M8 14v4M16 14v4M4 18h16" />
+            </svg>
             <span>Lower<br />Carbon Footprint</span>
           </article>
           <article>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 8h10l-1 12H8L7 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M12 12v4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M7 8h10l-1 12H8L7 8z" />
+              <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+              <path d="M12 12v4" />
+            </svg>
             <span>Improved<br />Waste Management</span>
           </article>
           <article>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1" />
+            </svg>
             <span>Renewable<br />Energy Source</span>
           </article>
         </div>
@@ -632,8 +795,9 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <a class="brand" href="index.html">
-          <span class="brand-mark"><img src="assets/logo.png" alt="R2S" /></span>
-          <span class="brand-copy"><strong>R2S Creative<br />Construction LLP</strong><small>Build <b>|</b> Engineer <b>|</b> Innovate</small></span>
+          <span class="brand-mark"><img loading="lazy" decoding="async" src="assets/logo.png" alt="" /></span>
+          <span class="brand-copy"><strong>R2S Creative<br />Construction LLP</strong><small>Build <b>|</b> Engineer
+              <b>|</b> Innovate</small></span>
         </a>
         <p class="footer-tagline">"Constructing a Better Tomorrow"</p>
       </div>
@@ -651,11 +815,11 @@
       <nav class="footer-nav-col" aria-label="Our services">
         <h3 class="footer-nav-heading">Our Services</h3>
         <ul>
-          <li><a href="services.html">PMC</a></li>
-          <li><a href="services.html">Oil &amp; Gas</a></li>
-          <li><a href="services.html">Turnkey Projects</a></li>
+          <li><a href="services.html#svc-pmc">PMC</a></li>
+          <li><a href="services.html#svc-oilgas">Oil &amp; Gas</a></li>
+          <li><a href="services.html#svc-turnkey">Turnkey Projects</a></li>
           <li><a href="biogas.html">Compressed Biogas</a></li>
-          <li><a href="services.html">MEP</a></li>
+          <li><a href="services.html#svc-mep">MEP</a></li>
         </ul>
       </nav>
       <div class="footer-contact-col">
@@ -675,4 +839,5 @@
   </footer>
 
 </body>
+
 </html>

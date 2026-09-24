@@ -204,23 +204,4 @@ For a focused first version, launch these pages first:
 
 The only sitemap item that needs a decision before implementation is `Electrical Engineering`; it is currently marked as remaining in the draw.io file.
 
-
-1 . Site bio gas major update in the cover and the front page 
-2 . build company profile in canva 
-3 . Default permission is main system in the upcoming project to scaffold a custom agent for your workflow 
-4 . privacy policy and enquiry form recipient email 
-
-
-
-1. confirm whether electrical engineering is a service and provide its scope 
-2. the only sitemap item that needs a decision before implementation is "electrical engineering it is currently marked as remaining the drw.io file
-3. final company logo and brand colors 
-4. privacy policy and enquircy from recipient email
-5. offical policy and enquiry form recipinet email
-6. privacy policy and enquiry form recipinent email  
-
-
-site bio gas major update in the cover and the front page 
-build company profile in canva 
-default permission is main system in the upcoming project to scaffold a custom agent for your workflow
-privacy policy and enquriry from recipient email
+1. hero section with company name, contruction capabilities, and enquiry button 

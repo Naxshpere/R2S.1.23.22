@@ -1,163 +1,100 @@
 /* ==========================================================================
    cursor.css — R2S Creative Construction LLP
-   Universal High-Contrast Luxury Cursor System
    ========================================================================== */
 
-/* 1. Hide native cursor cleanly across all elements when custom cursor is active */
+/* 1. Hide on coarse/touch devices completely */
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none !important; }
+}
+
+/* 2. Hide native cursor when custom cursor is active */
 html.js-cursor,
 html.js-cursor *,
 html.js-cursor *::before,
-html.js-cursor *::after {
-  cursor: none !important;
-}
+html.js-cursor *::after { cursor: none !important; }
 
-/* 2. Preserve native text caret for inputs so typing and selecting text is seamless */
+/* Preserve text caret in inputs */
 html.js-cursor input,
 html.js-cursor textarea,
-html.js-cursor [contenteditable="true"] {
-  cursor: text !important;
-}
+html.js-cursor [contenteditable="true"] { cursor: text !important; }
+html.js-cursor select  { cursor: pointer !important; }
+html.js-cursor iframe  { cursor: auto !important; }
 
-html.js-cursor select {
-  cursor: pointer !important;
-}
-
-html.js-cursor iframe {
-  cursor: auto !important;
-}
-
-/* When hovering over input/textarea, gently fade the custom cursor dot & ring */
+/* Fade when over input */
 .cursor-over-input .cursor-dot,
-.cursor-over-input .cursor-ring {
-  opacity: 0 !important;
-}
+.cursor-over-input .cursor-ring { opacity: 0 !important; }
 
-/* 3. Base Custom Cursor Elements */
+/* 3. Base elements */
 .cursor-dot,
 .cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: fixed; top: 0; left: 0;
   pointer-events: none;
   z-index: 999999;
   opacity: 0;
   will-change: transform, opacity;
 }
 
-/* 4. Center Cursor Dot - Dual-tone contrast visible on ANY dark or light background */
+/* 4. Center dot */
 .cursor-dot {
-  width: 8px;
-  height: 8px;
+  width: 8px; height: 8px;
   border-radius: 50%;
   background: #d4ac5a;
   border: 1.5px solid #11120f;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5), 0 2px 8px rgba(0, 0, 0, 0.4);
-  transform: translate3d(-100px, -100px, 0);
-  transition: opacity 0.15s ease, width 0.2s ease, height 0.2s ease;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.5), 0 2px 8px rgba(0,0,0,.4);
+  transform: translate3d(-200px, -200px, 0);
+  transition: opacity .15s ease, width .2s ease, height .2s ease;
 }
+.cursor-dot.is-hovering { width: 5px; height: 5px; opacity: .9; }
 
-.cursor-dot.is-hovering {
-  width: 5px;
-  height: 5px;
-  opacity: 0.9;
-}
-
-/* 5. Outer Cursor Ring - Dual-tone contrast ring */
+/* 5. Outer ring — no backdrop-filter (plain semi-transparent fill) */
 .cursor-ring {
-  width: 26px;
-  height: 26px;
+  width: 26px; height: 26px;
   border-radius: 50%;
-  transition: opacity 0.2s ease;
+  transition: opacity .2s ease;
   transform: translate3d(-50%, -50%, 0);
 }
-
 .cursor-ring::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  border: 1.5px solid rgba(212, 172, 90, 0.9);
+  position: absolute; inset: 0;
+  border: 1.5px solid rgba(212,172,90,.9);
   border-radius: 50%;
-  background: rgba(212, 172, 90, 0.12);
-  backdrop-filter: blur(4px) saturate(150%);
-  -webkit-backdrop-filter: blur(4px) saturate(150%);
-  box-shadow: 0 0 0 1px rgba(17, 18, 15, 0.4), 0 4px 14px rgba(0, 0, 0, 0.18);
-  transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+  background: rgba(212,172,90,.1);
+  box-shadow: 0 0 0 1px rgba(17,18,15,.4), 0 4px 14px rgba(0,0,0,.18);
+  transition: background .35s ease, border-color .35s ease;
 }
 
-@keyframes cursor-ring-rest {
-  from { transform: scale(2.4); }
-  to { transform: scale(1); }
-}
-
-@keyframes cursor-ring-hover {
-  from { transform: scale(1); }
-  to { transform: scale(2.4); }
-}
-
-@keyframes cursor-ring-press {
-  from { transform: scale(2.4); }
-  to { transform: scale(1.6); }
-}
+@keyframes cursor-ring-rest  { from { transform: scale(2.4); } to { transform: scale(1); } }
+@keyframes cursor-ring-hover { from { transform: scale(1);   } to { transform: scale(2.4); } }
+@keyframes cursor-ring-press { from { transform: scale(2.4); } to { transform: scale(1.6); } }
 
 .cursor-ring::after {
   content: attr(data-label);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 56px;
-  height: 56px;
-  display: grid;
-  place-items: center;
+  position: absolute; top: 50%; left: 50%;
+  width: 56px; height: 56px;
+  display: grid; place-items: center;
   color: #f7f4ed;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  opacity: 0;
-  text-transform: uppercase;
+  font-size: 9px; font-weight: 700; letter-spacing: .16em;
+  opacity: 0; text-transform: uppercase;
   transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease;
+  transition: opacity .2s ease;
 }
 
 .cursor-ring.is-hovering::before {
-  border-color: rgba(226, 186, 111, 1);
-  background: rgba(202, 162, 86, 0.22);
-  box-shadow: 0 0 0 1.5px rgba(17, 18, 15, 0.5), 0 8px 24px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(8px) saturate(170%);
-  -webkit-backdrop-filter: blur(8px) saturate(170%);
-  animation: cursor-ring-hover 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  border-color: rgba(226,186,111,1);
+  background: rgba(202,162,86,.2);
+  box-shadow: 0 0 0 1.5px rgba(17,18,15,.5), 0 8px 24px rgba(0,0,0,.22);
+  animation: cursor-ring-hover .35s cubic-bezier(.16,1,.3,1) forwards;
 }
-
 .cursor-ring.is-returning::before {
-  animation: cursor-ring-rest 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cursor-ring-rest .35s cubic-bezier(.16,1,.3,1) forwards;
 }
-
-.cursor-ring.is-hovering[data-label]::after {
-  opacity: 0.95;
-}
-
+.cursor-ring.is-hovering[data-label]::after { opacity: .95; }
 .cursor-ring.is-pressed::before {
-  animation: cursor-ring-press 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cursor-ring-press .2s cubic-bezier(.16,1,.3,1) forwards;
 }
 
 .cursor-dot.is-visible,
-.cursor-ring.is-visible {
-  opacity: 1 !important;
-}
+.cursor-ring.is-visible { opacity: 1 !important; }
 
 .cursor-over-input .cursor-dot.is-visible,
-.cursor-over-input .cursor-ring.is-visible {
-  opacity: 0 !important;
-}
-
-/* 6. Magnetic Button Drift */
-.js-cursor .button,
-.js-cursor .gold-button,
-.js-cursor .journey-link,
-.js-cursor .gold-pill-button,
-.js-cursor .directions-pill-btn,
-.js-cursor .text-link,
-.js-cursor .contact-link,
-.js-cursor .biogas-meta > a {
-  transform: translate(var(--magnetic-x, 0px), var(--magnetic-y, 0px));
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, border-color 0.25s ease;
-}
+.cursor-over-input .cursor-ring.is-visible { opacity: 0 !important; }

@@ -1,0 +1,1636 @@
+/* ==========================================================================
+   leadership.css — R2S Creative Construction LLP
+   Matches approved reference mockup with editorial craft and micro-interactions
+   Vanilla CSS — zero build step, maximum performance & precision
+   ========================================================================== */
+
+/* ── 00. DESIGN SYSTEM & TOKENS ────────────────────────────────────────────── */
+:root {
+  /* Color Palette */
+  --bg-dark:            #121212;
+  --bg-dark-card:       #181818;
+  --bg-dark-card-hover: #1e1e1e;
+  --bg-light:           #f4f3ef;
+  --bg-beige:           #eae7df;
+  --bg-footer:          #0c0c0c;
+
+  /* Typography Colors */
+  --text-light:         #f6f5f2;
+  --text-light-muted:   #9e9b94;
+  --text-dark:          #202020;
+  --text-dark-muted:    #6b6760;
+
+  /* Accent Gold / Ochre */
+  --gold:               #c9a15a;
+  --gold-dim:           rgba(201, 161, 90, 0.25);
+  --gold-glow:          rgba(201, 161, 90, 0.12);
+  --gold-hover:         #dfb974;
+
+  /* Borders & Dividers */
+  --border-dark:        rgba(255, 255, 255, 0.08);
+  --border-dark-hover:  rgba(201, 161, 90, 0.35);
+  --border-light:       rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  --font-serif:         'Cormorant Garamond', Georgia, serif;
+  --font-sans:          'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Layout */
+  --max-w:              1280px;
+  --header-h:           72px;
+  --container-pad:      clamp(20px, 4vw, 64px);
+
+  /* Motion */
+  --ease-editorial:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth:        cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── 01. RESET & BASE ──────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.ls-page {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── 02. REUSABLE CONTAINER & SECTION FRAMEWORK ────────────────────────────── */
+.ls-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.ls-section {
+  padding: clamp(70px, 8vw, 120px) 0;
+  position: relative;
+}
+
+.ls-section-dark {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.ls-section-light {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.ls-section-beige {
+  background-color: var(--bg-beige);
+  color: var(--text-dark);
+}
+
+/* Recurring Section Header Motif: "01 — THE STORY" */
+.ls-section-header {
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.ls-header-flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ls-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ls-sec-num {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--text-dark-muted);
+}
+
+.ls-section-dark .ls-sec-num {
+  color: var(--text-light-muted);
+}
+
+.ls-sec-rule {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.35;
+}
+
+.ls-sec-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+.ls-sec-subtitle {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dark-muted);
+  margin-top: 6px;
+}
+
+.ls-header-kicker {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: right;
+  line-height: 1.55;
+  color: var(--text-dark-muted);
+}
+
+.ls-section-dark .ls-header-kicker {
+  color: var(--text-light-muted);
+  opacity: 0.8;
+}
+
+.ls-gold-em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* ── 03. MINI HEADER (STANDALONE PAGE) ─────────────────────────────────────── */
+.ls-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.ls-header-inner {
+  max-width: var(--max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ls-brand-logo {
+  height: 38px;
+  width: auto;
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+
+.ls-brand-logo:hover {
+  opacity: 1;
+}
+
+.ls-header-back {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-light-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.ls-header-back:hover {
+  color: var(--gold);
+}
+
+.ls-back-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-editorial);
+}
+
+.ls-header-back:hover .ls-back-arrow {
+  transform: translateX(-4px);
+}
+
+/* ── 04. HERO SECTION ──────────────────────────────────────────────────────── */
+.ls-hero {
+  position: relative;
+  min-height: 94vh;
+  padding-top: calc(var(--header-h) + 40px);
+  padding-bottom: 60px;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-dark);
+  overflow: hidden;
+}
+
+.ls-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 65% 45%, rgba(40, 38, 35, 0.45) 0%, rgba(18, 18, 18, 0.95) 75%, #121212 100%);
+  z-index: 1;
+}
+
+.ls-hero-container {
+  max-width: var(--max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 0.4fr;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  gap: 20px;
+}
+
+/* Left Hero Copy */
+.ls-hero-copy {
+  z-index: 4;
+}
+
+.ls-hero-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.ls-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-light-muted);
+}
+
+.ls-eyebrow-rule {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background-color: var(--gold);
+}
+
+.ls-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 6.2vw, 84px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.hero-line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-line-inner {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.hero-line-2 em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.ls-hero-subline {
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 1.3vw, 17px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--text-light-muted);
+  margin-bottom: 40px;
+}
+
+/* Founder Typeset Nameblock (NO signature graphic) */
+.ls-hero-nameblock {
+  margin-bottom: 36px;
+  padding-left: 1px;
+}
+
+.ls-founder-name {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.ls-founder-title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-light-muted);
+  letter-spacing: 0.04em;
+}
+
+.ls-founder-firm {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+/* Core Values Strip */
+.ls-hero-mantra {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ls-mantra-dot {
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+/* Hero Center: Portrait */
+.ls-hero-portrait-col {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.ls-portrait-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* Bulletproof edge-fade overlay: guarantees zero hard rectangle edges on any browser/viewport */
+.ls-portrait-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(18, 18, 18, 0.5) 75%, #121212 100%),
+              linear-gradient(to right, #121212 0%, transparent 16%, transparent 84%, #121212 100%);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.ls-portrait-img {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+  filter: grayscale(100%) contrast(1.08) brightness(0.96);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.ls-portrait-blend {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 42%;
+  background: linear-gradient(to top, #121212 20%, transparent 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Hero Right: Floating Rail Stack */
+.ls-hero-rail-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.ls-rail-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: right;
+  transition: transform 0.1s linear;
+}
+
+.ls-rail-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  line-height: 1.45;
+  color: var(--text-light-muted);
+  opacity: 0.75;
+}
+
+.ls-rail-dash {
+  width: 24px;
+  height: 1px;
+  background-color: var(--gold);
+  margin-left: auto;
+  opacity: 0.7;
+}
+
+.ls-rail-group-secondary {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ── 05. SECTION 01: THE STORY ─────────────────────────────────────────────── */
+.ls-story-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.8fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: stretch;
+}
+
+.ls-story-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 3.8vw, 48px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+}
+
+.ls-story-prose p {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--text-dark-muted);
+  margin-bottom: 18px;
+}
+
+/* Quote Card in Story */
+.ls-story-card-col {
+  display: flex;
+  align-items: center;
+}
+
+.ls-quote-card {
+  background-color: #ffffff;
+  padding: clamp(32px, 4vw, 48px);
+  border-left: 3px solid var(--gold);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.04);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.ls-card-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--text-dark);
+  margin-bottom: 28px;
+}
+
+.ls-card-author {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+}
+
+/* Story Right Architectural Visual */
+.ls-story-media-col {
+  position: relative;
+}
+
+.ls-story-photo-wrap {
+  position: relative;
+  height: 100%;
+  min-height: 380px;
+  overflow: hidden;
+}
+
+.ls-story-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1);
+  will-change: transform;
+}
+
+.ls-story-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
+}
+
+.ls-story-tag-stack {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #ffffff;
+  z-index: 2;
+  text-align: right;
+  line-height: 1.4;
+}
+
+/* ── 06. SECTION 02: KEY NUMBERS ───────────────────────────────────────────── */
+.ls-numbers-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  padding: clamp(24px, 4vw, 40px) 0;
+}
+
+.ls-stat-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ls-stat-value {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 5.5vw, 76px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: baseline;
+}
+
+.ls-stat-plus {
+  font-family: var(--font-serif);
+  font-size: 0.65em;
+  margin-left: 2px;
+}
+
+.ls-stat-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+.ls-stat-sublabel {
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-light-muted);
+  margin-top: 6px;
+  opacity: 0.75;
+}
+
+.ls-stat-separator {
+  width: 1px;
+  height: 72px;
+  background-color: var(--border-dark);
+  margin: 0 clamp(16px, 3vw, 48px);
+}
+
+/* ── 07. SECTION 03: CAREER JOURNEY (TIMELINE) ─────────────────────────────── */
+.ls-timeline-wrap {
+  position: relative;
+  padding-top: 40px;
+}
+
+.ls-timeline-line-svg {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ls-track-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ls-track-base {
+  stroke: rgba(0, 0, 0, 0.12);
+  stroke-width: 2px;
+}
+
+.ls-track-active {
+  stroke: var(--gold);
+  stroke-width: 2px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.ls-timeline-row {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(12px, 1.8vw, 28px);
+  position: relative;
+  z-index: 2;
+}
+
+.ls-tl-node {
+  display: flex;
+  flex-direction: column;
+}
+
+.ls-tl-year {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-dark);
+  margin-bottom: 22px;
+}
+
+.ls-tl-point {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.ls-company-mark {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 44px;
+  margin-bottom: 14px;
+}
+
+.ls-tl-logo {
+  display: block;
+  width: auto;
+  max-width: 100px;
+  max-height: 38px;
+  object-fit: contain;
+  filter: none;
+  opacity: 0.25;
+  /* kills white PNG backgrounds on the beige section bg */
+  mix-blend-mode: multiply;
+  transition: opacity 0.35s ease, transform 0.35s var(--ease-editorial);
+}
+
+.ls-tl-node:hover .ls-tl-logo,
+.ls-tl-node.is-active .ls-tl-logo {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+/* R2S logo special */
+.ls-company-mark-r2s .ls-tl-logo {
+  opacity: 0.3;
+}
+
+.ls-tl-node:hover .ls-company-mark-r2s .ls-tl-logo {
+  opacity: 1;
+}
+
+/* R2S main logo.png is wider — constrain width, let height auto */
+.ls-tl-logo-r2s {
+  max-width: 90px;
+  max-height: 44px;
+}
+
+.ls-tl-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid #5a564e;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+}
+
+.ls-tl-node:hover .ls-tl-dot,
+.ls-tl-dot-active {
+  background-color: var(--gold) !important;
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 4px rgba(201, 161, 90, 0.25);
+}
+
+.ls-tl-role {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.ls-tl-company {
+  min-height: 19px;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.ls-tl-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-dark-muted);
+}
+
+/* ── 08. SECTION 04: EXPERTISE (SPOTLIGHT GLOW CARDS) ──────────────────────── */
+.ls-expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.ls-exp-card {
+  background-color: var(--bg-dark-card);
+  border: 1px solid var(--border-dark);
+  padding: clamp(32px, 3.5vw, 44px) clamp(24px, 2.5vw, 32px);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-editorial), border-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.ls-exp-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-dark-hover);
+}
+
+/* Cursor-spotlight glow overlay (Vengeance UI style) */
+.ls-card-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    320px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(201, 161, 90, 0.14),
+    transparent 65%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.ls-exp-card:hover .ls-card-spotlight {
+  opacity: 1;
+}
+
+.ls-exp-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--gold);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s var(--ease-editorial);
+}
+
+.ls-exp-card:hover .ls-exp-icon {
+  transform: scale(1.08) translateY(-2px);
+}
+
+.ls-exp-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ls-exp-title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.ls-exp-subtitle {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--text-light-muted);
+  margin-top: 4px;
+}
+
+.ls-exp-desc {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-light-muted);
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
+
+/* ── 09. SECTION 05: PROJECTS I'VE WORKED ON ─────────────────────────────── */
+.ls-projects {
+  overflow: hidden; /* clip the scrolling track */
+}
+
+.ls-projects-header {
+  position: relative;
+  z-index: 3;
+  isolation: isolate;
+  clear: both;
+}
+
+.ls-projects-grid {
+  display: flex;
+  flex-direction: row;
+  gap: clamp(16px, 2vw, 24px);
+  /* Will be scrubbed by GSAP — no CSS transition here */
+  will-change: transform;
+}
+
+/* Desktop: fixed card width so 9 cards overflow the viewport naturally */
+@media (min-width: 1025px) {
+  .ls-projects-grid {
+    flex-wrap: nowrap;
+  }
+
+  .ls-proj-card {
+    flex: 0 0 clamp(260px, 22vw, 340px);
+    width: clamp(260px, 22vw, 340px);
+  }
+}
+
+/* Mobile: wrap into 2-col grid */
+@media (max-width: 1024px) {
+  .ls-projects-grid {
+    flex-wrap: wrap;
+  }
+
+  .ls-proj-card {
+    flex: 0 0 calc(50% - 12px);
+    width: calc(50% - 12px);
+  }
+}
+
+@media (max-width: 600px) {
+  .ls-proj-card {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+
+.ls-proj-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  min-width: 0;
+  overflow: hidden;
+  /* NO transform transition — GSAP owns the horizontal scroll */
+}
+
+.ls-proj-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #e0ded8;
+  margin-bottom: 16px;
+}
+
+/* ONLY the <img> gets a CSS transition — hover scale only, separate from GSAP scrub */
+.ls-proj-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.06);
+  transition: transform 0.65s var(--ease-editorial), filter 0.65s ease;
+  will-change: transform;
+}
+
+.ls-proj-card:hover .ls-proj-img {
+  transform: scale(1.06);
+  filter: grayscale(80%) contrast(1.1);
+}
+
+.ls-proj-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.08);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.ls-proj-card:hover .ls-proj-img-overlay {
+  opacity: 0;
+}
+
+.ls-proj-meta {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  /* No transform transition — parent card has no GSAP-conflicting transition */
+}
+
+.ls-proj-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  overflow-wrap: anywhere;
+}
+
+.ls-proj-location {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--text-dark-muted);
+  overflow-wrap: anywhere;
+}
+
+/* ── 10. SECTION 06: LEADERSHIP MESSAGE ────────────────────────────────────── */
+.ls-message {
+  position: relative;
+  background-color: #121212;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+}
+
+.ls-message-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.ls-message-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.38) contrast(1.2);
+}
+
+.ls-message-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(18, 18, 18, 0.65) 0%, rgba(18, 18, 18, 0.95) 100%);
+}
+
+.ls-message-container {
+  position: relative;
+  z-index: 3;
+}
+
+.ls-message-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+}
+
+.ls-message-quote-wrap {
+  max-width: 820px;
+  position: relative;
+}
+
+.ls-message-glyph {
+  font-family: var(--font-serif);
+  font-size: clamp(64px, 8vw, 110px);
+  line-height: 0.7;
+  color: var(--gold);
+  opacity: 0.85;
+  margin-bottom: 12px;
+}
+
+.ls-message-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3.4vw, 44px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+
+.ls-message-attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ls-msg-name {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.ls-msg-title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-light-muted);
+}
+
+.ls-message-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  text-align: right;
+}
+
+.ls-msg-rail-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ls-msg-rail-dash {
+  width: 20px;
+  height: 1px;
+  background-color: var(--gold);
+}
+
+/* ── 11. OUR PEOPLE TEASER ─────────────────────────────────────────────────── */
+.ls-people {
+  position: relative;
+  background-color: #121212;
+  overflow: hidden;
+  padding: clamp(80px, 9vw, 130px) 0;
+}
+
+.ls-people-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.ls-people-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.28) contrast(1.15);
+}
+
+.ls-people-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(18, 18, 18, 0.95) 0%, rgba(18, 18, 18, 0.75) 50%, rgba(18, 18, 18, 0.95) 100%);
+}
+
+.ls-people-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 3;
+}
+
+.ls-people-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.ls-people-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+.ls-people-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.ls-people-desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-light-muted);
+  max-width: 480px;
+}
+
+/* Magnetic Button with Arrow Pull (Vengeance UI style) */
+.ls-btn-magnetic {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 36px;
+  border: 1px solid var(--gold);
+  background-color: rgba(18, 18, 18, 0.65);
+  backdrop-filter: blur(8px);
+  color: var(--text-light);
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: transform 0.25s var(--ease-editorial), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  will-change: transform;
+}
+
+.ls-btn-magnetic:hover {
+  background-color: var(--gold);
+  color: #121212;
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(201, 161, 90, 0.25);
+}
+
+.ls-btn-arr {
+  font-size: 14px;
+  transition: transform 0.3s var(--ease-editorial);
+  display: inline-block;
+}
+
+.ls-btn-magnetic:hover .ls-btn-arr {
+  transform: translateX(6px);
+}
+
+/* ── 12. FOOTER ────────────────────────────────────────────────────────────── */
+.ls-footer {
+  background-color: var(--bg-footer);
+  padding: 64px 0 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ls-footer-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 32px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ls-footer-logo {
+  height: 36px;
+  width: auto;
+  opacity: 0.9;
+}
+
+.ls-footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(14px, 2vw, 28px);
+}
+
+.ls-footer-nav a {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-light-muted);
+  transition: color 0.3s ease;
+}
+
+.ls-footer-nav a:hover,
+.ls-footer-nav a.ls-active-nav {
+  color: var(--gold);
+}
+
+.ls-footer-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.ls-footer-social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ls-social-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-light-muted);
+}
+
+.ls-social-icon {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--text-light-muted);
+  transition: all 0.3s ease;
+}
+
+.ls-social-icon:hover {
+  background-color: var(--gold);
+  color: #121212;
+}
+
+.ls-footer-tagline {
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: right;
+}
+
+.ls-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 32px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ls-footer-mantra {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── 13. MOTION & ANIMATIONS ───────────────────────────────────────────────── */
+/* Base state: fully visible by default for robust progressive enhancement */
+.hero-fade-in,
+.ls-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── 14. RESPONSIVE BREAKPOINTS ────────────────────────────────────────────── */
+@media (min-width: 1025px) {
+  .ls-projects {
+    overflow: hidden;
+  }
+
+  .ls-projects-grid {
+    display: flex;
+    width: max-content;
+    grid-template-columns: none;
+  }
+
+  .ls-proj-card {
+    flex: 0 0 clamp(240px, 22vw, 320px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .ls-hero-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .ls-hero-rail-col {
+    display: none;
+  }
+
+  .ls-story-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ls-story-media-col {
+    grid-column: span 2;
+    height: 320px;
+  }
+
+  .ls-expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ls-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ls-footer-main {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .ls-footer-brand {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ls-footer-right { justify-content: center; }
+
+  .ls-footer-tagline {
+    text-align: center;
+  }
+
+  .ls-footer-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .ls-hero {
+    min-height: auto;
+    padding-top: calc(var(--header-h) + 16px);
+    padding-bottom: 48px;
+    overflow: visible;
+  }
+
+  .ls-hero-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ls-hero-portrait-col {
+    order: -1;
+    max-width: 320px;
+    margin: 0 auto 16px;
+    width: 100%;
+    height: auto;
+  }
+
+  .ls-portrait-wrap {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .ls-portrait-wrap::after {
+    background: linear-gradient(to bottom, transparent 40%, rgba(18, 18, 18, 0.65) 75%, #121212 98%),
+                linear-gradient(to right, #121212 0%, transparent 16%, transparent 84%, #121212 100%);
+  }
+
+  .ls-portrait-img {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
+    -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+  }
+
+  .ls-hero-title {
+    font-size: clamp(38px, 10vw, 54px);
+    margin-bottom: 16px;
+  }
+
+  .ls-hero-subline {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .ls-hero-nameblock {
+    margin-bottom: 20px;
+  }
+
+  /* Guarantee PEOPLE · PROCESS · PROGRESS is visible on mobile */
+  .ls-hero-mantra {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 14px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .ls-story-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ls-story-media-col {
+    grid-column: span 1;
+    height: 260px;
+  }
+
+  /* Numbers grid collapses on mobile */
+  .ls-numbers-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 16px;
+  }
+
+  .ls-stat-separator {
+    display: none;
+  }
+
+  /* Career Journey collapses into vertical timeline */
+  .ls-timeline-line-svg {
+    display: none;
+  }
+
+  .ls-timeline-row {
+    grid-template-columns: 1fr;
+    border-left: 2px solid var(--gold);
+    padding-left: 24px;
+    gap: 32px;
+  }
+
+  .ls-company-mark {
+    margin-bottom: 12px;
+  }
+
+  .ls-tl-point {
+    display: none;
+  }
+
+  .ls-tl-year {
+    margin-bottom: 6px;
+  }
+
+  .ls-expertise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ls-projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ls-message-body {
+    grid-template-columns: 1fr;
+  }
+
+  .ls-message-rail {
+    display: none;
+  }
+
+  .ls-people-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ls-header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ls-header-kicker {
+    text-align: left;
+  }
+
+  .ls-footer {
+    padding: 48px 0 28px;
+  }
+
+  .ls-footer-main {
+    gap: 24px;
+    padding-bottom: 32px;
+  }
+
+  .ls-footer-nav {
+    column-gap: 18px;
+    row-gap: 14px;
+  }
+
+  .ls-footer-nav a {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+
+  .ls-footer-right {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .ls-footer-tagline { text-align: center; }
+
+  .ls-footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 24px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .ls-footer-copy { max-width: 30ch; }
+
+  .ls-footer-mantra {
+    gap: 8px;
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* ── 15. ACCESSIBILITY: PREFERS REDUCED MOTION ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-fade-in,
+  .ls-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .ls-track-active {
+    stroke-dashoffset: 0 !important;
+  }
+
+  .ls-btn-magnetic {
+    transform: none !important;
+  }
+}
+

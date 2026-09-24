@@ -1,25 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="R2S Creative Construction LLP designs and constructs Compressed Biogas plants for a cleaner, more self-reliant future." />
   <title>Bio Gas | R2S Creative Construction LLP</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo_r2s.png" type="image/png" />
+  <meta name="theme-color" content="#0f0e0c" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Compressed Biogas | R2S Creative Construction LLP" />
+  <meta property="og:description" content="R2S designs and constructs Compressed Biogas plants for a cleaner, self-reliant future." />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="font-overrides.css" />
   <link rel="stylesheet" href="cursor.css" />
   <link rel="stylesheet" href="biogas.css" />
-  <script src="script.js" defer></script>
+  <script src="site.js" defer></script>
   <script src="cursor.js" defer></script>
   <script src="biogas.js" defer></script>
 </head>
 <body class="biogas-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header" id="top">
     <a class="brand" href="index.html" aria-label="R2S Creative Construction LLP home">
-      <span class="brand-mark"><img src="assets/logo.png" alt="R&amp;S" /></span>
+      <span class="brand-mark"><img fetchpriority="high" src="assets/logo.png" alt="" /></span>
       <span class="brand-copy"><strong>R2S Creative<br />Construction LLP</strong><small>Build <b>|</b> Engineer <b>|</b> Innovate</small></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span><span></span><span></span></button>
@@ -28,9 +34,9 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="bio-hero" aria-labelledby="bio-hero-title">
-      <div class="bio-hero-bg"></div>
+      <div class="bio-hero-bg" data-parallax="0.25" aria-hidden="true"></div>
       <div class="bio-overlay"></div>
       <div class="bio-hero-copy bio-reveal">
         <p class="eyebrow">Compressed Biogas (CBG)</p>
@@ -269,7 +275,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <a class="brand" href="index.html" aria-label="R2S Creative Construction LLP home">
-          <span class="brand-mark"><img src="assets/logo.png" alt="R&amp;S" /></span>
+          <span class="brand-mark"><img loading="lazy" decoding="async" src="assets/logo.png" alt="" /></span>
           <span class="brand-copy"><strong>R2S Creative<br />Construction LLP</strong><small>Build <b>|</b> Engineer <b>|</b> Innovate</small></span>
         </a>
         <p class="footer-tagline">"Constructing a Better Tomorrow"</p>
@@ -299,17 +305,12 @@
         <h3 class="footer-nav-heading">Contact</h3>
         <address>
           <p>Surat, Gujarat, India</p>
-          <p><a href="tel:+919876542210">+91 98765 42210</a></p>
+          <p><a href="contact.html">Contact Us &rarr;</a></p>
         </address>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&#169; 2025 R2S Creative Construction LLP. All rights reserved.</span>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms</a>
-        <a href="#">Sitemap</a>
-      </div>
+      <span>&#169; 2026 R2S Creative Construction LLP. All rights reserved.</span>
     </div>
   </footer>
 </body>

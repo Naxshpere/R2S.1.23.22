@@ -1,43 +1,27 @@
 /**
  * projects.js — R2S Projects page motion
- * Hero load, sliding filter pills, SVG timeline draw, card FLIP expand, slideshow.
- * card-tilt / base reveal / icon-lift remain in shared.js.
+ * Hero load, sliding filter pills, cached SVG timeline draw, card expand with a11y, slideshow.
+ * Reveal, tilt, magnetic, and header are handled by site.js.
  */
 (function () {
   'use strict';
 
-  var EASE = 'cubic-bezier(0.16, 1, 0.3, 1)';
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   document.addEventListener('DOMContentLoaded', function () {
+    if (typeof gsap !== 'undefined') {
+      if (typeof Flip !== 'undefined') gsap.registerPlugin(Flip);
+      if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
+    }
+
     initHeroLoad();
     initFilterPills();
     initSearchAndFilter();
-    initCardReveal();
     initTimeline();
     initCardExpand();
+    initCardScrollReveals();
+    initScrollProgress();
   });
-
-  /* ── 1.3 Independent card reveal (same observer as biogas.js) ───── */
-  function initCardReveal() {
-    var cards = document.querySelectorAll('.proj-card.reveal-left, .proj-card.reveal-right');
-    if (reduced) {
-      cards.forEach(function (el) { el.classList.add('is-visible'); });
-      return;
-    }
-    var observer = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-    );
-    cards.forEach(function (el) { observer.observe(el); });
-  }
 
   /* ── 1. Hero page-load sequence ─────────────────────────────────── */
   function initHeroLoad() {
@@ -50,6 +34,25 @@
 
     function show(el) {
       if (el) el.classList.add('is-visible');
+    }
+
+    function animateCounter(el) {
+      if (!el || reduced || !window.gsap) return;
+      var target = parseFloat(el.getAttribute('data-count')) || 0;
+      var suffix = el.getAttribute('data-suffix') || '';
+      var proxy = { val: 0 };
+      gsap.to(proxy, {
+        val: target,
+        duration: 1.5,
+        ease: 'power2.out',
+        onUpdate: function () {
+          el.textContent = Math.round(proxy.val) + suffix;
+        },
+        onComplete: function () {
+          el.textContent = target + suffix;
+          gsap.set(el, { clearProps: 'all' });
+        }
+      });
     }
 
     if (reduced) {
@@ -67,7 +70,11 @@
     window.setTimeout(function () { show(title); }, 100);
     window.setTimeout(function () { show(copy); }, 200);
     stats.forEach(function (el, i) {
-      window.setTimeout(function () { show(el); }, 300 + i * 90);
+      window.setTimeout(function () {
+        show(el);
+        var targetEl = el.querySelector('.count-target');
+        if (targetEl) animateCounter(targetEl);
+      }, 300 + i * 90);
     });
     window.setTimeout(function () { show(filter); }, 500);
   }
@@ -95,8 +102,10 @@
       if (!btn) return;
       track.querySelectorAll('.filter-btn').forEach(function (b) {
         b.classList.remove('is-active');
+        b.setAttribute('aria-pressed', 'false');
       });
       btn.classList.add('is-active');
+      btn.setAttribute('aria-pressed', 'true');
       moveTo(btn);
     });
 
@@ -115,6 +124,11 @@
     var category = 'all';
 
     function apply() {
+      var useFlip = !reduced && typeof Flip !== 'undefined';
+      var state = useFlip
+        ? Flip.getState('.proj-card, .project-row:not(.project-row--founding)')
+        : null;
+
       var q = (input ? input.value : '').trim().toLowerCase();
       var visible = 0;
       cards.forEach(function (card) {
@@ -137,12 +151,31 @@
         row.classList.toggle('is-solo', visibleCards.length === 1 && hiddenCards.length > 0);
       });
       if (empty) empty.hidden = visible !== 0;
-      window.dispatchEvent(new Event('proj-layout'));
+
+      if (useFlip && state) {
+        Flip.from(state, {
+          duration: 0.48,
+          ease: 'power2.inOut',
+          stagger: 0.02,
+          fade: true,
+          scale: true,
+          onComplete: function () {
+            if (window.gsap) gsap.set('.proj-card', { clearProps: 'transform,opacity' });
+            window.dispatchEvent(new Event('proj-layout'));
+            if (window.ScrollTrigger) ScrollTrigger.refresh();
+          }
+        });
+      } else {
+        window.dispatchEvent(new Event('proj-layout'));
+      }
     }
 
     buttons.forEach(function (btn) {
       btn.addEventListener('click', function () {
         category = btn.getAttribute('data-filter') || 'all';
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b === btn));
+        });
         apply();
       });
     });
@@ -166,6 +199,15 @@
       pathLength = path.getTotalLength();
       path.style.setProperty('--path-length', String(pathLength));
       path.style.strokeDasharray = String(pathLength);
+
+      // Cache node ratio relative to grid height to prevent layout thrashing on scroll
+      var gridRect = grid.getBoundingClientRect();
+      var gridH = grid.offsetHeight || 1;
+      nodes.forEach(function (node) {
+        var nodeRect = node.getBoundingClientRect();
+        node._timelineRatio = (nodeRect.top - gridRect.top + nodeRect.height / 2) / gridH;
+      });
+
       if (reduced) {
         path.style.strokeDashoffset = '0';
         nodes.forEach(function (node) {
@@ -199,13 +241,10 @@
       var offset = pathLength * (1 - progress);
       path.style.strokeDashoffset = offset;
 
-      var gridRect = grid.getBoundingClientRect();
-      var gridH = grid.offsetHeight || 1;
       nodes.forEach(function (node) {
         var row = node.closest('.project-row');
         if (row && row.classList.contains('is-filtered-out')) return;
-        var nodeRect = node.getBoundingClientRect();
-        var ratio = (nodeRect.top - gridRect.top + nodeRect.height / 2) / gridH;
+        var ratio = typeof node._timelineRatio === 'number' ? node._timelineRatio : 0;
         var reached = progress >= ratio;
         node.classList.toggle('is-visible', reached);
         node.classList.toggle('is-drawn', reached);
@@ -243,6 +282,7 @@
     var spacer = null;
     var slideTimer = null;
     var slidePaused = false;
+    var triggerBtn = null;
 
     cards.forEach(function (card) {
       var slides = card.querySelectorAll('.proj-slideshow img');
@@ -261,12 +301,15 @@
       card.addEventListener('click', function (e) {
         if (card.classList.contains('is-expanded')) return;
         if (e.target.closest('.proj-close')) return;
-        expand(card);
+        expand(card, e.target.closest('.proj-view') || card);
       });
-      card.querySelector('.proj-close').addEventListener('click', function (e) {
-        e.stopPropagation();
-        collapse();
-      });
+      var closeBtn = card.querySelector('.proj-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          collapse();
+        });
+      }
       var prev = card.querySelector('.slide-prev');
       var next = card.querySelector('.slide-next');
       if (prev) prev.addEventListener('click', function (e) {
@@ -283,7 +326,26 @@
 
     if (overlay) overlay.addEventListener('click', collapse);
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') collapse();
+      if (e.key === 'Escape' && openCard) {
+        collapse();
+      } else if (e.key === 'Tab' && openCard) {
+        var focusables = openCard.querySelectorAll(
+          'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        var focusArr = Array.prototype.slice.call(focusables).filter(function (el) {
+          return el.offsetParent !== null;
+        });
+        if (!focusArr.length) return;
+        var first = focusArr[0];
+        var last = focusArr[focusArr.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     });
 
     function pauseAuto() {
@@ -311,15 +373,20 @@
       slides[next].classList.add('is-active');
     }
 
-    function expand(card) {
+    function expand(card, sourceEl) {
       if (openCard) return;
       openCard = card;
+      triggerBtn = sourceEl || card.querySelector('.proj-view') || null;
 
       var first = card.getBoundingClientRect();
+      var cs = window.getComputedStyle(card);
       spacer = document.createElement('div');
       spacer.className = 'proj-card-spacer';
       spacer.style.width = first.width + 'px';
       spacer.style.height = first.height + 'px';
+      spacer.style.gridColumn = cs.gridColumn;
+      spacer.style.gridRow = cs.gridRow;
+      spacer.style.margin = cs.margin;
       card.parentNode.insertBefore(spacer, card);
 
       if (overlay) {
@@ -335,6 +402,13 @@
       });
 
       card.classList.add('is-expanded');
+      card.setAttribute('role', 'dialog');
+      card.setAttribute('aria-modal', 'true');
+      var heading = card.querySelector('h3');
+      if (heading) card.setAttribute('aria-label', heading.textContent.trim());
+
+      var closeBtn = card.querySelector('.proj-close');
+      if (closeBtn) closeBtn.focus();
 
       if (reduced) {
         card.classList.add('is-show-slides', 'is-show-close');
@@ -344,12 +418,10 @@
         return;
       }
 
-      card.style.transform = 'translate(-50%, -50%) scale(0.92)';
-      card.style.transition = 'transform 0ms';
+      card.style.setProperty('--expand-scale', '0.92');
 
       requestAnimationFrame(function () {
-        card.style.transition = 'transform 0.45s ' + EASE;
-        card.style.transform = 'translate(-50%, -50%) scale(1)';
+        card.style.setProperty('--expand-scale', '1');
       });
 
       window.setTimeout(function () {
@@ -371,19 +443,24 @@
 
       function finish() {
         card.classList.remove('is-expanded', 'is-show-slides', 'is-show-close');
+        card.removeAttribute('role');
+        card.removeAttribute('aria-modal');
+        card.removeAttribute('aria-label');
+        card.style.removeProperty('--expand-scale');
         card.querySelectorAll('.proj-details li').forEach(function (li) {
           li.classList.remove('is-in');
         });
-        card.style.transition = '';
-        card.style.transform = '';
         if (spacer) {
           spacer.parentNode.removeChild(spacer);
           spacer = null;
         }
         cards.forEach(function (other) { other.classList.remove('is-dimmed'); });
-        overlay.classList.remove('is-on');
+        if (overlay) overlay.classList.remove('is-on');
         document.body.classList.remove('proj-expanded');
-        window.setTimeout(function () { overlay.hidden = true; }, 250);
+        if (overlay) window.setTimeout(function () { overlay.hidden = true; }, 250);
+        if (triggerBtn && typeof triggerBtn.focus === 'function') {
+          triggerBtn.focus();
+        }
         openCard = null;
       }
 
@@ -403,14 +480,77 @@
           finish();
           return;
         }
-        card.style.transition = 'transform 0.4s ' + EASE;
-        card.style.transform = 'translate(-50%, -50%) scale(0.92)';
+        card.style.setProperty('--expand-scale', '0.92');
 
         window.setTimeout(function () {
           finish();
         }, 400);
       }, 150);
     }
+  }
+
+  /* ── 5. Card scroll image uncover & text stagger ────────────────── */
+  function initCardScrollReveals() {
+    if (reduced || !window.gsap || !window.ScrollTrigger) return;
+
+    var cards = document.querySelectorAll('.proj-card');
+    cards.forEach(function (card) {
+      var photo = card.querySelector('.proj-card-photo');
+      var firstImg = photo ? photo.querySelector('.proj-slideshow img:first-child') : null;
+      var bodyItems = card.querySelectorAll(
+        '.proj-cat, h3, .proj-loc, .proj-metrics li, .proj-view'
+      );
+
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          once: true,
+        },
+        onComplete: function () {
+          // CRITICAL: clearProps prevents conflicts with CSS tilt and modal expand
+          if (firstImg) gsap.set(firstImg, { clearProps: 'transform,clipPath' });
+          if (bodyItems.length) gsap.set(bodyItems, { clearProps: 'transform,opacity' });
+        }
+      });
+
+      if (firstImg) {
+        tl.fromTo(
+          firstImg,
+          { clipPath: 'inset(0% 0% 100% 0%)', scale: 1.12 },
+          { clipPath: 'inset(0% 0% 0% 0%)', scale: 1.0, duration: 0.75, ease: 'power3.out' }
+        );
+      }
+
+      if (bodyItems.length) {
+        tl.from(
+          bodyItems,
+          {
+            y: 14,
+            opacity: 0,
+            stagger: 0.045,
+            duration: 0.45,
+            ease: 'power2.out'
+          },
+          firstImg ? '-=0.45' : 0
+        );
+      }
+    });
+  }
+
+  /* ── 6. Viewport scroll progress line ───────────────────────────── */
+  function initScrollProgress() {
+    var bar = document.querySelector('.proj-scroll-progress');
+    if (!bar || reduced || !window.gsap || !window.ScrollTrigger) return;
+
+    ScrollTrigger.create({
+      trigger: document.body,
+      start: 'top top',
+      end: 'bottom bottom',
+      onUpdate: function (self) {
+        gsap.set(bar, { scaleX: self.progress });
+      }
+    });
   }
 
 })();

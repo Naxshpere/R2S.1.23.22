@@ -12,10 +12,6 @@
   overflow-x: hidden;
 }
 
-.biogas-page .site-header {
-  position: absolute;
-}
-
 .biogas-page .brand-copy strong,
 .biogas-page .site-nav {
   color: var(--cream);
@@ -264,6 +260,7 @@
 .bio-hero {
   min-height: 760px;
   height: 100vh;
+  height: 100svh;
   max-height: 980px;
   position: relative;
   display: flex;

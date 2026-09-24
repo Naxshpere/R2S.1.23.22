@@ -1,23 +1,50 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="R2S Creative Construction LLP builds engineered environments for a stronger tomorrow." />
+  <meta name="description" content="R2S Creative Construction LLP — engineering and construction solutions across Oil & Gas, MEP, PMC, Turnkey and Compressed Biogas. Build. Engineer. Innovate." />
   <title>R2S Creative Construction LLP | Build. Engineer. Innovate.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo_r2s.png" type="image/png" />
+  <meta name="theme-color" content="#0f0e0c" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="R2S Creative Construction LLP | Build. Engineer. Innovate." />
+  <meta property="og:description" content="Engineering and construction solutions across Oil & Gas, MEP, PMC, Turnkey and Compressed Biogas." />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="font-overrides.css" />
   <link rel="stylesheet" href="cursor.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="intro.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="site.js" defer></script>
   <script src="cursor.js" defer></script>
+  <script src="intro.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Opening Curtain Animation -->
+  <div class="intro-curtain" id="introCurtain" aria-hidden="true">
+    <div class="curtain-panel panel-top"></div>
+    <div class="curtain-panel panel-bottom"></div>
+    <div class="curtain-line"></div>
+    <div class="intro-brand">
+      <div class="intro-logo-wrap">
+        <img class="intro-logo" src="assets/logo.png" alt="R2S Creative Construction" />
+      </div>
+      <div class="intro-copy">
+        <span class="intro-title">R2S Creative Construction LLP</span>
+        <span class="intro-tag">Build <b>|</b> Engineer <b>|</b> Innovate</span>
+      </div>
+    </div>
+    <button class="intro-skip" type="button" aria-label="Skip intro animation">Skip</button>
+  </div>
+
   <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="R2S Creative Construction LLP home">
-      <span class="brand-mark"><img src="assets/logo.png" alt="R&amp;S" /></span>
+    <a class="brand" href="index.html" aria-label="R2S Creative Construction LLP — home">
+      <span class="brand-mark"><img fetchpriority="high" src="assets/logo.png" alt="" /></span>
       <span class="brand-copy">
         <strong>R2S Creative<br />Construction LLP</strong>
         <small>Build <b>|</b> Engineer <b>|</b> Innovate</small>
@@ -29,29 +56,39 @@
     </button>
 
     <nav class="site-nav" id="site-menu" aria-label="Primary navigation">
-      <a class="active" href="#top">Home</a>
-      <a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="biogas.html">Bio Gas</a><a href="#contact">Contact</a>
-      <a class="button button-small nav-quote" href="#contact">Get a Quote <span aria-hidden="true">→</span></a>
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="biogas.html">Bio Gas</a>
+      <a href="contact.html">Contact</a>
+      <a class="button button-small nav-quote" href="contact.html">Get a Quote <span aria-hidden="true">→</span></a>
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-overlay"></div>
-      <img class="hero-watermark" src="assets/logo.png" alt="" aria-hidden="true" />
+      <img loading="lazy" decoding="async" class="hero-watermark" src="assets/logo.png" alt="" aria-hidden="true" />
       <div class="hero-content">
         <p class="eyebrow">Construction with Purpose</p>
-        <h1 id="hero-title"><em>Innovative</em><span>Solutions for<br class="desktop-break" /> Construction Work</span></h1>
+        <h1 id="hero-title">
+          <span class="hero-anim-mask"><em>Innovative</em></span>
+          <span class="hero-anim-mask"><span>Solutions for<br class="desktop-break" /> Construction Work</span></span>
+        </h1>
         <p class="hero-subline">Ideas Today <b>|</b> Stronger Tomorrow</p>
-        <a class="button hero-button" href="#projects">Explore Our Work <span aria-hidden="true">→</span></a>
+        <div class="hero-btn-wrap">
+          <a class="button hero-button" href="projects.html">Explore Our Work <span aria-hidden="true">→</span></a>
+        </div>
         <div class="stat-row" aria-label="Company highlights">
           <div class="stat"><strong>100<span>+</span></strong><small>Projects<br />Completed</small></div>
           <div class="stat"><strong>5<span>+</span></strong><small>Years<br />Experience</small></div>
           <div class="stat"><strong>100<span>%</span></strong><small>Commitment<br />to Quality</small></div>
         </div>
       </div>
-      <aside class="hero-badge">Constructing<br />a Better<br />Tomorrow<span></span></aside>
-      <div class="hero-footer-line"><span>People</span><i></i><span>Process</span><i></i><span>Progress</span></div>
+      <aside class="hero-badge" aria-hidden="true">Constructing<br />a Better<br />Tomorrow<span></span></aside>
+      <div class="hero-footer-line" aria-hidden="true"><span>People</span><i></i><span>Process</span><i></i><span>Progress</span></div>
     </section>
 
     <section class="biogas-strip" id="biogas" aria-labelledby="biogas-title">
@@ -63,24 +100,47 @@
       <div class="biogas-meta">
         <div><strong>RCC</strong><span>Process Area</span></div>
         <div><strong>2026</strong><span>Target Commissioning</span></div>
-        <a href="#projects">Explore the Project <span aria-hidden="true">→</span></a>
+        <a href="projects.html">Explore the Project <span aria-hidden="true">→</span></a>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer" id="contact">
     <div class="footer-brand">
-      <a class="brand" href="#top" aria-label="Back to top">
-        <span class="brand-mark"><img src="assets/logo.png" alt="R&amp;S" /></span>
+      <a class="brand" href="index.html" aria-label="R2S Creative Construction LLP — back to top">
+        <span class="brand-mark"><img loading="lazy" decoding="async" src="assets/logo.png" alt="" /></span>
         <span class="brand-copy"><strong>R2S Creative<br />Construction LLP</strong><small>Build <b>|</b> Engineer <b>|</b> Innovate</small></span>
       </a>
       <p>Engineering environments for a stronger tomorrow.</p>
     </div>
-    <div class="footer-column"><h2>Quick Links</h2><a href="#top">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="biogas.html">Bio Gas</a><a href="#contact">Contact</a></div>
-    <div class="footer-column"><h2>Our Services</h2><span>PMC</span><span>Oil &amp; Gas</span><span>MEP</span><span>Compressed Biogas</span><span>Turnkey Projects</span></div>
-    <div class="footer-column"><h2>Connect</h2><span>Surat, Gujarat, India</span><a href="mailto:sd.sharma@r2scc.com">sd.sharma@r2scc.com</a><a href="tel:+919222831493">+91 92228 31493</a><span>LinkedIn · Instagram · YouTube</span></div>
-    <div class="footer-bottom"><span>© 2026 R2S Creative Construction LLP. All rights reserved.</span><em>People · Process · Progress</em></div>
+    <div class="footer-column">
+      <h2>Quick Links</h2>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="biogas.html">Bio Gas</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-column">
+      <h2>Our Services</h2>
+      <a href="services.html#svc-pmc">PMC</a>
+      <a href="services.html#svc-oilgas">Oil &amp; Gas</a>
+      <a href="services.html#svc-mep">MEP</a>
+      <a href="services.html#svc-cbg">Compressed Biogas</a>
+      <a href="services.html#svc-turnkey">Turnkey Projects</a>
+    </div>
+    <div class="footer-column">
+      <h2>Connect</h2>
+      <span>Surat, Gujarat, India</span>
+      <a href="mailto:sd.sharma@r2scc.com">sd.sharma@r2scc.com</a>
+      <a href="contact.html">Contact Us →</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 R2S Creative Construction LLP. All rights reserved.</span>
+      <em>People · Process · Progress</em>
+    </div>
   </footer>
 </body>
 </html>

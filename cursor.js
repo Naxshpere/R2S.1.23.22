@@ -1,11 +1,22 @@
 /**
  * cursor.js — R2S Creative Construction LLP
- * Universal High-Contrast Luxury Cursor System
- * Works seamlessly across all pages: Contact, About, Services, Projects, Biogas, Home
+ * Custom cursor system.
+ *
+ * Changes from original:
+ *  - Enabled ONLY on true pointer devices (hover:hover + pointer:fine)
+ *  - Ring RAF loop stops when ring has caught up (idle-aware)
+ *  - Magnetic effect removed — now handled entirely by site.js (--mx/--my)
+ *  - INTERACTIVE_SELECTOR trimmed to real interactive elements only
+ *  - backdrop-filter removed from ring (plain fill instead)
+ *  - Touch disable replaced with per-event pointerType check
  */
 
 (() => {
   'use strict';
+
+  // Only run on real pointer devices; skip touch-only and reduced-motion
+  if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   let initialized = false;
 
@@ -17,8 +28,7 @@
 
     const root = document.documentElement;
 
-    // Check if already created or create cleanly
-    let dot = document.querySelector('.cursor-dot');
+    let dot  = document.querySelector('.cursor-dot');
     let ring = document.querySelector('.cursor-ring');
 
     if (!dot) {
@@ -34,15 +44,20 @@
 
     root.classList.add('js-cursor');
 
-    const target = { x: -100, y: -100 };
-    const ringPosition = { x: -100, y: -100 };
+    const target       = { x: -200, y: -200 };
+    const ringPosition = { x: -200, y: -200 };
     let isVisible = false;
+    let raf = 0;
 
-    function renderRing() {
+    /* Ring loop — only runs while the ring is moving */
+    function loop() {
       ringPosition.x += (target.x - ringPosition.x) * 0.35;
       ringPosition.y += (target.y - ringPosition.y) * 0.35;
-      ring.style.transform = `translate3d(${ringPosition.x}px, ${ringPosition.y}px, 0) translate3d(-50%, -50%, 0)`;
-      requestAnimationFrame(renderRing);
+      ring.style.transform =
+        `translate3d(${ringPosition.x}px,${ringPosition.y}px,0) translate3d(-50%,-50%,0)`;
+      const dx = Math.abs(target.x - ringPosition.x);
+      const dy = Math.abs(target.y - ringPosition.y);
+      raf = (dx > 0.1 || dy > 0.1) ? requestAnimationFrame(loop) : 0;
     }
 
     function show() {
@@ -55,133 +70,77 @@
 
     function hide() {
       isVisible = false;
-      target.x = -100;
-      target.y = -100;
-      ringPosition.x = -100;
-      ringPosition.y = -100;
+      target.x = -200; target.y = -200;
       dot.classList.remove('is-visible');
       ring.classList.remove('is-visible');
     }
 
-    // Direct pointer tracking (0ms lag for the center dot)
-    window.addEventListener('mousemove', (e) => {
+    /* Track pointer — skip touch events */
+    window.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') {
+        root.classList.remove('js-cursor');
+        hide();
+        return;
+      }
+      if (!root.classList.contains('js-cursor')) root.classList.add('js-cursor');
       target.x = e.clientX;
       target.y = e.clientY;
-      dot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate3d(-50%, -50%, 0)`;
+      dot.style.transform =
+        `translate3d(${e.clientX}px,${e.clientY}px,0) translate3d(-50%,-50%,0)`;
       show();
+      if (!raf) raf = requestAnimationFrame(loop);
     }, { passive: true });
 
     document.addEventListener('mouseleave', hide);
 
-    // If pure touch interaction occurs on mobile, disable custom cursor cleanly
-    window.addEventListener('touchstart', () => {
-      root.classList.remove('js-cursor');
-      hide();
-    }, { passive: true, once: true });
-
-    // Interactive Hover States via Event Delegation
+    /* Interactive states — real links and buttons only */
     const INTERACTIVE_SELECTOR = [
-      'a',
-      'button',
-      '.button',
-      '.gold-button',
-      '.journey-link',
-      '.gold-pill-button',
-      '.directions-pill-btn',
-      '.contact-link',
-      '.nav-quote',
-      '.text-link',
-      '.site-nav > a',
-      '.feature-item',
-      '.detail-card',
-      '.value-item',
-      '.principles article',
-      '.expertise-grid article',
-      '.stats-strip article',
-      '.cbg-feature li',
-      '.social-badge',
-      '[role="button"]'
+      'a', 'button', '.button', '.gold-button', '.gold-pill-button',
+      '.journey-link', '.text-link', '[role="button"]', '.proj-view',
     ].join(',');
 
-    const PRIMARY_LABELED_SELECTOR = '.hero-button, .nav-quote, .biogas-meta > a, .gold-pill-button, .gold-button';
-
     document.addEventListener('mouseover', (e) => {
-      const interactive = e.target.closest(INTERACTIVE_SELECTOR);
       const isInput = e.target.closest('input, textarea, select');
-
       if (isInput) {
         root.classList.add('cursor-over-input');
         ring.classList.remove('is-hovering', 'is-pressed');
         ring.classList.add('is-returning');
         dot.classList.remove('is-hovering');
         delete ring.dataset.label;
-        window.setTimeout(() => ring.classList.remove('is-returning'), 350);
+        setTimeout(() => ring.classList.remove('is-returning'), 350);
         return;
-      } else {
-        root.classList.remove('cursor-over-input');
       }
+      root.classList.remove('cursor-over-input');
 
+      const interactive = e.target.closest(INTERACTIVE_SELECTOR);
       if (interactive) {
         ring.classList.remove('is-returning');
         ring.classList.add('is-hovering');
         dot.classList.add('is-hovering');
-
-        if (interactive.matches(PRIMARY_LABELED_SELECTOR) && interactive.dataset.label) {
-          ring.dataset.label = interactive.dataset.label;
-        }
       }
     });
 
     document.addEventListener('mouseout', (e) => {
-      const interactive = e.target.closest(INTERACTIVE_SELECTOR);
       const isInput = e.target.closest('input, textarea, select');
+      if (isInput) root.classList.remove('cursor-over-input');
 
-      if (isInput) {
-        root.classList.remove('cursor-over-input');
-      }
-
+      const interactive = e.target.closest(INTERACTIVE_SELECTOR);
       if (interactive && !interactive.contains(e.relatedTarget)) {
         ring.classList.remove('is-hovering', 'is-pressed');
         ring.classList.add('is-returning');
         dot.classList.remove('is-hovering');
         delete ring.dataset.label;
-
-        interactive.style.removeProperty('--magnetic-x');
-        interactive.style.removeProperty('--magnetic-y');
-
-        setTimeout(() => {
-          ring.classList.remove('is-returning');
-        }, 350);
-      }
-    });
-
-    // Magnetic drift for buttons & links
-    document.addEventListener('mousemove', (e) => {
-      const magneticEl = e.target.closest('.button, .gold-pill-button, .gold-button, .directions-pill-btn, .text-link, .biogas-meta > a, .journey-link, .contact-link');
-      if (magneticEl) {
-        const rect = magneticEl.getBoundingClientRect();
-        const relX = e.clientX - rect.left - rect.width / 2;
-        const relY = e.clientY - rect.top - rect.height / 2;
-        const clamp = (val, limit) => Math.max(-limit, Math.min(limit, val));
-        const x = clamp(relX * 0.22, rect.width * 0.18);
-        const y = clamp(relY * 0.22, rect.height * 0.18);
-        magneticEl.style.setProperty('--magnetic-x', `${x.toFixed(1)}px`);
-        magneticEl.style.setProperty('--magnetic-y', `${y.toFixed(1)}px`);
+        setTimeout(() => ring.classList.remove('is-returning'), 350);
       }
     });
 
     document.addEventListener('mousedown', () => ring.classList.add('is-pressed'));
-    document.addEventListener('mouseup', () => ring.classList.remove('is-pressed'));
-
-    requestAnimationFrame(renderRing);
+    document.addEventListener('mouseup',   () => ring.classList.remove('is-pressed'));
   }
 
-  // Safe Lifecycle Initialization
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupCursor);
   } else {
     setupCursor();
   }
-
-  window.addEventListener('load', setupCursor);
 })();

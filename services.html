@@ -1,25 +1,30 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="R2S Creative Construction LLP — engineering solutions across PMC, Oil and Gas, Turnkey Projects, Compressed Biogas CBG Plants, and MEP services." />
   <title>Services | R2S Creative Construction LLP</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo_r2s.png" type="image/png" />
+  <meta name="theme-color" content="#0f0e0c" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Services | R2S Creative Construction LLP" />
+  <meta property="og:description" content="Engineering solutions across PMC, Oil and Gas, Turnkey Projects, Compressed Biogas and MEP services." />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="font-overrides.css" />
   <link rel="stylesheet" href="cursor.css" />
   <link rel="stylesheet" href="services.css" />
-  <script src="script.js" defer></script>
+  <script src="site.js" defer></script>
   <script src="cursor.js" defer></script>
-  <script src="services.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header" id="top">
     <a class="brand" href="index.html" aria-label="R2S Creative Construction LLP home">
-      <span class="brand-mark"><img src="assets/logo.png" alt="R2S" /></span>
+      <span class="brand-mark"><img fetchpriority="high" src="assets/logo.png" alt="" aria-hidden="true" /></span>
       <span class="brand-copy">
         <strong>R2S Creative<br />Construction LLP</strong>
         <small>Build <b>|</b> Engineer <b>|</b> Innovate</small>
@@ -39,13 +44,13 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- 1. HERO -->
     <section class="svc-hero" aria-labelledby="svc-hero-title">
       <div class="svc-hero-overlay"></div>
-      <img class="hero-watermark" src="assets/logo.png" alt="" aria-hidden="true" />
-      <div class="svc-hero-content reveal-up">
+      <img loading="lazy" decoding="async" class="hero-watermark" src="assets/logo.png" alt="" aria-hidden="true" />
+      <div class="svc-hero-content">
         <p class="eyebrow">Services</p>
         <h1 id="svc-hero-title">Engineering<br /><em>Solutions</em><br />Across Industries</h1>
         <p class="svc-hero-sub">From concept to commissioning, we deliver end-to-end construction and engineering solutions with a focus on quality, safety, sustainability and long-term value.</p>
@@ -75,13 +80,13 @@
       <h2 id="services-heading" class="sr-only">Our Services</h2>
 
       <!-- 01 PMC -->
-      <article class="svc-row svc-row--odd" aria-labelledby="svc-pmc">
+      <article class="svc-row svc-row--odd" id="svc-pmc" aria-labelledby="svc-pmc-title">
         <div class="svc-row-text reveal-left">
           <span class="svc-index" aria-hidden="true">01</span>
           <header class="svc-row-header">
-            <img src="assets/icons/icon-clipboard.svg" alt="" class="svc-icon" aria-hidden="true" />
+            <img loading="lazy" decoding="async" src="assets/icons/icon-clipboard.svg" alt="" class="svc-icon" aria-hidden="true" />
             <div>
-              <h3 id="svc-pmc">PMC</h3>
+              <h3 id="svc-pmc-title">PMC</h3>
               <p class="svc-subhead">Project Management Consultancy</p>
             </div>
           </header>
@@ -94,10 +99,10 @@
             <li>Safety, quality &amp; compliance</li>
             <li>Testing, commissioning &amp; handover</li>
           </ul>
-          <a class="svc-learn-more" href="contact.html">Learn More <span aria-hidden="true">&#x2192;</span></a>
+          <a class="svc-learn-more" href="contact.html">Enquire About This Service <span aria-hidden="true">&#x2192;</span></a>
         </div>
         <div class="svc-row-image reveal-right">
-          <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-01.jpg" alt="Aquarium facility — R2S project management consultancy" loading="lazy" />
+          <img src="r2s-projects-photos/assets/projects/project-11-vantara-aquarium-pmc/gallery-01.jpg" alt="Aquarium facility — R2S project management consultancy" loading="lazy" data-parallax="0.08" />
           <div class="svc-image-caption">
             <span>Plan</span><span>Coordinate</span><span>Execute</span><span>Deliver</span>
           </div>
@@ -105,9 +110,9 @@
       </article>
 
       <!-- 02 Oil and Gas -->
-      <article class="svc-row svc-row--even" aria-labelledby="svc-oilgas">
+      <article class="svc-row svc-row--even" id="svc-oilgas" aria-labelledby="svc-oilgas-title">
         <div class="svc-row-image reveal-left">
-          <img src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/cover.jpg" alt="HPCL Refinery Pachpadra — oil and gas construction" loading="lazy" />
+          <img src="r2s-projects-photos/assets/projects/project-03-hpcl-refinery-pachpadra/cover.jpg" alt="HPCL Refinery Pachpadra — oil and gas construction" loading="lazy" data-parallax="0.08" />
           <div class="svc-image-caption svc-image-caption--br">
             <span>Energy</span><span>Infrastructure</span><span>for a Stronger</span><span>Tomorrow</span>
           </div>
@@ -115,9 +120,9 @@
         <div class="svc-row-text reveal-right">
           <span class="svc-index" aria-hidden="true">02</span>
           <header class="svc-row-header">
-            <img src="assets/icons/icon-factory.svg" alt="" class="svc-icon" aria-hidden="true" />
+            <img loading="lazy" decoding="async" src="assets/icons/icon-factory.svg" alt="" class="svc-icon" aria-hidden="true" />
             <div>
-              <h3 id="svc-oilgas">Oil &amp; Gas</h3>
+              <h3 id="svc-oilgas-title">Oil &amp; Gas</h3>
               <p class="svc-subhead">Specialised construction solutions for critical energy infrastructure</p>
             </div>
           </header>
@@ -130,18 +135,18 @@
             <li>Shutdown support &amp; maintenance</li>
             <li>Compliance with industry standards</li>
           </ul>
-          <a class="svc-learn-more" href="contact.html">Learn More <span aria-hidden="true">&#x2192;</span></a>
+          <a class="svc-learn-more" href="contact.html">Enquire About This Service <span aria-hidden="true">&#x2192;</span></a>
         </div>
       </article>
 
       <!-- 03 Turnkey -->
-      <article class="svc-row svc-row--odd" aria-labelledby="svc-turnkey">
+      <article class="svc-row svc-row--odd" id="svc-turnkey" aria-labelledby="svc-turnkey-title">
         <div class="svc-row-text reveal-left">
           <span class="svc-index" aria-hidden="true">03</span>
           <header class="svc-row-header">
-            <img src="assets/icons/icon-buildings.svg" alt="" class="svc-icon" aria-hidden="true" />
+            <img loading="lazy" decoding="async" src="assets/icons/icon-buildings.svg" alt="" class="svc-icon" aria-hidden="true" />
             <div>
-              <h3 id="svc-turnkey">Turnkey Projects</h3>
+              <h3 id="svc-turnkey-title">Turnkey Projects</h3>
               <p class="svc-subhead">Complete project delivery from concept to commissioning</p>
             </div>
           </header>
@@ -154,10 +159,10 @@
             <li>Interior &amp; exterior finishing</li>
             <li>Single-point accountability</li>
           </ul>
-          <a class="svc-learn-more" href="contact.html">Learn More <span aria-hidden="true">&#x2192;</span></a>
+          <a class="svc-learn-more" href="contact.html">Enquire About This Service <span aria-hidden="true">&#x2192;</span></a>
         </div>
         <div class="svc-row-image reveal-right">
-          <img src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/cover.jpg" alt="Turnkey construction project Surat" loading="lazy" />
+          <img src="r2s-projects-photos/assets/projects/project-04-turnkey-construction-surat/cover.jpg" alt="Turnkey construction project Surat" loading="lazy" data-parallax="0.08" />
           <div class="svc-image-caption">
             <span>Your Vision</span><span>Our Execution</span>
           </div>
@@ -165,9 +170,9 @@
       </article>
 
       <!-- 04 CBG -->
-      <article class="svc-row svc-row--even" aria-labelledby="svc-cbg">
+      <article class="svc-row svc-row--even" id="svc-cbg" aria-labelledby="svc-cbg-title">
         <div class="svc-row-image reveal-left">
-          <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Compressed Biogas (CBG) Plant project facility" loading="lazy" />
+          <img src="assets/biogas-capabilities.jpg" alt="Compressed Biogas (CBG) Plant facility" loading="lazy" data-parallax="0.08" />
           <div class="svc-image-caption svc-image-caption--br">
             <span>Clean Energy</span><span>Greener</span><span>Communities</span>
           </div>
@@ -175,9 +180,9 @@
         <div class="svc-row-text reveal-right">
           <span class="svc-index" aria-hidden="true">04</span>
           <header class="svc-row-header">
-            <img src="assets/icons/icon-leaf.svg" alt="" class="svc-icon" aria-hidden="true" />
+            <img loading="lazy" decoding="async" src="assets/icons/icon-leaf.svg" alt="" class="svc-icon" aria-hidden="true" />
             <div>
-              <h3 id="svc-cbg">Compressed Biogas (CBG) Plant</h3>
+              <h3 id="svc-cbg-title">Compressed Biogas (CBG) Plant</h3>
               <p class="svc-subhead">Sustainable energy solutions for a cleaner, greener future</p>
             </div>
           </header>
@@ -190,18 +195,18 @@
             <li>Commissioning &amp; performance optimisation</li>
             <li>Operation &amp; maintenance support</li>
           </ul>
-          <a class="svc-learn-more" href="contact.html">Learn More <span aria-hidden="true">&#x2192;</span></a>
+          <a class="svc-learn-more" href="contact.html">Enquire About This Service <span aria-hidden="true">&#x2192;</span></a>
         </div>
       </article>
 
       <!-- 05 MEP -->
-      <article class="svc-row svc-row--odd" aria-labelledby="svc-mep">
+      <article class="svc-row svc-row--odd" id="svc-mep" aria-labelledby="svc-mep-title">
         <div class="svc-row-text reveal-left">
           <span class="svc-index" aria-hidden="true">05</span>
           <header class="svc-row-header">
-            <img src="assets/icons/icon-wrench.svg" alt="" class="svc-icon" aria-hidden="true" />
+            <img loading="lazy" decoding="async" src="assets/icons/icon-wrench.svg" alt="" class="svc-icon" aria-hidden="true" />
             <div>
-              <h3 id="svc-mep">MEP</h3>
+              <h3 id="svc-mep-title">MEP</h3>
               <p class="svc-subhead">Integrated MEP solutions for efficient and smart infrastructure</p>
             </div>
           </header>
@@ -214,10 +219,10 @@
             <li>Testing, commissioning &amp; AMC</li>
             <li>Compliance with global standards</li>
           </ul>
-          <a class="svc-learn-more" href="contact.html">Learn More <span aria-hidden="true">&#x2192;</span></a>
+          <a class="svc-learn-more" href="contact.html">Enquire About This Service <span aria-hidden="true">&#x2192;</span></a>
         </div>
         <div class="svc-row-image reveal-right">
-          <img src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/cover.jpg" alt="HVAC Ductwork &amp; Mechanical MEP Execution — BKC Mumbai, India" loading="lazy" style="object-fit: cover; object-position: center;" />
+          <img src="r2s-projects-photos/assets/projects/project-08-hvac-bkc-mumbai-mep/cover.jpg" alt="HVAC Ductwork &amp; Mechanical MEP Execution — BKC Mumbai, India" loading="lazy" data-parallax="0.08" />
           <div class="svc-image-caption">
             <span>Building Comfort</span><span>Powering Performance</span>
           </div>
@@ -245,7 +250,7 @@
 
         <div class="process-step reveal-process" style="--step-delay:0ms" role="listitem">
           <div class="process-badge">
-            <img src="assets/icons/icon-eye.svg" alt="Understand" />
+            <img loading="lazy" decoding="async" src="assets/icons/icon-eye.svg" alt="" />
           </div>
           <span class="process-num" aria-hidden="true">01</span>
           <h4>Understand</h4>
@@ -253,7 +258,7 @@
         </div>
         <div class="process-step reveal-process" style="--step-delay:140ms" role="listitem">
           <div class="process-badge">
-            <img src="assets/icons/icon-wrench.svg" alt="Plan" />
+            <img loading="lazy" decoding="async" src="assets/icons/icon-wrench.svg" alt="" />
           </div>
           <span class="process-num" aria-hidden="true">02</span>
           <h4>Plan</h4>
@@ -261,7 +266,7 @@
         </div>
         <div class="process-step reveal-process" style="--step-delay:280ms" role="listitem">
           <div class="process-badge">
-            <img src="assets/icons/icon-hardhat.svg" alt="Execute" />
+            <img loading="lazy" decoding="async" src="assets/icons/icon-hardhat.svg" alt="" />
           </div>
           <span class="process-num" aria-hidden="true">03</span>
           <h4>Execute</h4>
@@ -269,7 +274,7 @@
         </div>
         <div class="process-step reveal-process" style="--step-delay:420ms" role="listitem">
           <div class="process-badge">
-            <img src="assets/icons/icon-target.svg" alt="Control" />
+            <img loading="lazy" decoding="async" src="assets/icons/icon-target.svg" alt="" />
           </div>
           <span class="process-num" aria-hidden="true">04</span>
           <h4>Control</h4>
@@ -277,7 +282,7 @@
         </div>
         <div class="process-step reveal-process" style="--step-delay:560ms" role="listitem">
           <div class="process-badge">
-            <img src="assets/icons/icon-key.svg" alt="Commission" />
+            <img loading="lazy" decoding="async" src="assets/icons/icon-key.svg" alt="" />
           </div>
           <span class="process-num" aria-hidden="true">05</span>
           <h4>Commission</h4>
@@ -298,31 +303,31 @@
         </div>
         <div class="svc-industries-grid" role="list">
           <div class="industry-card reveal-industry" style="--ind-delay:0ms" role="listitem">
-            <div class="industry-badge"><img src="assets/icons/icon-buildings.svg" alt="" aria-hidden="true" /></div>
+            <div class="industry-badge"><img loading="lazy" decoding="async" src="assets/icons/icon-buildings.svg" alt="" aria-hidden="true" /></div>
             <span>Residential</span>
           </div>
           <div class="industry-card reveal-industry" style="--ind-delay:80ms" role="listitem">
-            <div class="industry-badge"><img src="assets/icons/icon-buildings.svg" alt="" aria-hidden="true" /></div>
+            <div class="industry-badge"><img loading="lazy" decoding="async" src="assets/icons/icon-handshake.svg" alt="" aria-hidden="true" /></div>
             <span>Commercial</span>
           </div>
           <div class="industry-card reveal-industry" style="--ind-delay:160ms" role="listitem">
-            <div class="industry-badge"><img src="assets/icons/icon-factory.svg" alt="" aria-hidden="true" /></div>
+            <div class="industry-badge"><img loading="lazy" decoding="async" src="assets/icons/icon-factory.svg" alt="" aria-hidden="true" /></div>
             <span>Industrial</span>
           </div>
           <div class="industry-card reveal-industry" style="--ind-delay:240ms" role="listitem">
-            <div class="industry-badge"><img src="assets/icons/icon-globe.svg" alt="" aria-hidden="true" /></div>
+            <div class="industry-badge"><img loading="lazy" decoding="async" src="assets/icons/icon-globe.svg" alt="" aria-hidden="true" /></div>
             <span>Energy &amp; Utilities</span>
           </div>
           <div class="industry-card reveal-industry" style="--ind-delay:320ms" role="listitem">
-            <div class="industry-badge"><img src="assets/icons/icon-map-pin.svg" alt="" aria-hidden="true" /></div>
+            <div class="industry-badge"><img loading="lazy" decoding="async" src="assets/icons/icon-map-pin.svg" alt="" aria-hidden="true" /></div>
             <span>Infrastructure &amp; Public Works</span>
           </div>
           <div class="industry-card reveal-industry" style="--ind-delay:400ms" role="listitem">
-            <div class="industry-badge"><img src="assets/icons/icon-leaf.svg" alt="" aria-hidden="true" /></div>
+            <div class="industry-badge"><img loading="lazy" decoding="async" src="assets/icons/icon-leaf.svg" alt="" aria-hidden="true" /></div>
             <span>Renewable Energy</span>
           </div>
           <div class="industry-card reveal-industry" style="--ind-delay:480ms" role="listitem">
-            <div class="industry-badge"><img src="assets/icons/icon-buildings.svg" alt="" aria-hidden="true" /></div>
+            <div class="industry-badge"><img loading="lazy" decoding="async" src="assets/icons/bio-droplet.svg" alt="" aria-hidden="true" /></div>
             <span>Oil &amp; Gas</span>
           </div>
         </div>
@@ -350,7 +355,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <a class="brand" href="index.html" aria-label="R2S Creative Construction LLP home">
-          <span class="brand-mark"><img src="assets/logo.png" alt="R2S" /></span>
+          <span class="brand-mark"><img loading="lazy" decoding="async" src="assets/logo.png" alt="" /></span>
           <span class="brand-copy">
             <strong>R2S Creative<br />Construction LLP</strong>
             <small>Build <b>|</b> Engineer <b>|</b> Innovate</small>
@@ -383,22 +388,12 @@
         <h3 class="footer-nav-heading">Contact</h3>
         <address>
           <p>Surat, Gujarat, India</p>
-          <p><a href="tel:+919876542210">+91 98765 42210</a></p>
+          <p><a href="contact.html">Contact Us &rarr;</a></p>
         </address>
-        <div class="footer-social" aria-label="Social media">
-          <a href="#" aria-label="LinkedIn" class="social-link">in</a>
-          <a href="#" aria-label="Instagram" class="social-link">ig</a>
-          <a href="#" aria-label="YouTube" class="social-link">yt</a>
-        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&#169; 2025 R2S Creative Design &amp; Iron Works LLP. All rights reserved.</span>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms</a>
-        <a href="#">Sitemap</a>
-      </div>
+      <span>&#169; 2026 R2S Creative Construction LLP. All rights reserved.</span>
     </div>
   </footer>
 
